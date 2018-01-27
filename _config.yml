@@ -9,7 +9,7 @@ name: Random learnings of a Developer
 description: Gareth.Select(x => x.RandomThoughts()).Dump();
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
-avatar: https://avatars3.githubusercontent.com/u/2257160?s=400&v=4
+#avatar: https://avatars3.githubusercontent.com/u/2257160?s=400&v=4
 
 #
 # Flags below are optional
