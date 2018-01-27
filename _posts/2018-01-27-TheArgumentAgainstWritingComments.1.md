@@ -3,9 +3,7 @@ layout: post
 title: The argument against writing comments
 ---
 
-Comments imply the code does not speak for itself.
-
-Code with a lot of comments, usually has the comments because the code itself doesn't adequately represent what its doing, and in most cases it could be changed so that it does describe itself correctly without a huge amount of upfront effort (apart from a few oddities to do with technological limitations, or odd requirements imposed on the code base).
+Comments imply the code does not speak for itself. Code with a lot of comments, usually has them because the code itself doesn't adequately represent what its doing, and in most cases it could be changed so that it does describe itself correctly without a huge amount of upfront effort (apart from a few oddities to do with technological limitations, or odd requirements imposed on the code base).
 
 Like documentation (which is fine as a communication mechanism btw.) comments are often out of date just after they are written. Developers do not update them when bug fixing, and often when changing a feature completely as they are not part of the code, there is nothing compiling them and telling them they are completely incorrect. This means many of the comments in a code base are often out of date and completely incorrect. 
 

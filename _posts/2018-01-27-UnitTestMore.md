@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Unit Testing and TDD FTW
+title: Unit Test More
 ---
 
 Unit testing is hard, you aren't going to learn it overnight, you may not reap the benefits of it immediately, you may not have a code base that supports them, but persist and long term, the benefits will start to appear. This is especially true with code that is harder to test with more traditional methods. TDD is the next level of this, and tends to be even harder to apply at first, but can be a great benefit once you get the hang of it.
