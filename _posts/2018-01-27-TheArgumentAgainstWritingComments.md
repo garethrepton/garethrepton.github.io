@@ -1,6 +1,6 @@
 ---
 layout: post
-title: The argument against writing comments in object oriented code
+title: The argument against writing comments
 ---
 
 tldr; Comments imply the code does not speak for itself.
