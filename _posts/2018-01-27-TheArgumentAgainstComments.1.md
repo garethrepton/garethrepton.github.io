@@ -1,6 +1,6 @@
 ---
 layout: post
-title: The argument against writing comments
+title: The Argument Against Comments
 ---
 
 Comments imply the code does not speak for itself. Code with a lot of comments, usually has them because the code itself doesn't adequately represent what its doing, and in most cases it could be changed so that it does describe itself correctly without a huge amount of upfront effort (apart from a few oddities to do with technological limitations, or odd requirements imposed on the code base).
