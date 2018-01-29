@@ -22,7 +22,7 @@ I'm a big fan of [Fluent Assertions](http://fluentassertions.com/) for my test a
 [NCrunch](http://www.ncrunch.net/) wins this hands down for me. It automatically builds and runs your tests in the background quickly and with minimal fuss, and highlights the code coverage against the system under test to give you an idea of areas you may have missed completely.  
 
 ### Continuous Integration Server & Source Control
-Doesn't really matter which, but if you have a team of people working on something, set one up, and get it to automatically run your tests. 
+Doesn't really matter which, but if you have a team of people working on something, set one up, and get it to automatically run your tests.
 
 And thats just about it, I'll add some more if I think of any, but these are the tools I've found to be most useful 
 
