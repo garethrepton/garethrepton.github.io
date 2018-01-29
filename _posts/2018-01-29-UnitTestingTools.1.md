@@ -4,7 +4,7 @@ title: The TDD toolkit
 tags: tdd unit-testing c# dotnet toolkit mocking 
 ---
 
-I'm going to try to do a few posts on test driven development and unit testing in the .Net world. Yeah its been covered quite heavily already, but I think more information out there can only be a good thing, can't it?
+I'm going to try to do a few posts on test driven development in the .Net world. Yeah its been covered quite heavily already, but I think more information out there can only be a good thing, can't it?
 
 ### Testing Framework
 There are a few very similar choices here, I quite like [XUnit](https://xunit.github.io/) - its data driven Theory style tests really quite useful, and its nice and simple to work with, although I'm sure [NUnit](http://nunit.org/) would provide nearly the same experience. Even MSTest wasn't too bad last time I used it.
