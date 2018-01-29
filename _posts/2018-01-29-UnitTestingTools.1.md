@@ -4,7 +4,6 @@ title: The TDD toolkit
 tags: tdd unit-testing c# dotnet toolkit mocking 
 ---
 
-## Intro
 I'm going to try to do a few posts on test driven development and unit testing in the .Net world. Yeah its been covered quite heavily already, but I think more information out there can only be a good thing, can't it?
 
 ### Testing Framework
