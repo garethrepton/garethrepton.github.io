@@ -134,7 +134,7 @@ The key is here:
 repository.GetAll().Returns(spoons);
         {% endhighlight %}
 
-We are telling the NSubstitute mock, that whenever it receives a call to GetAll() it needs to return our expected spoon list. So when the repository is injected into the CutleryProcessor, that is the only behaviour it will know how to perform. So when GetAll is called by the CutleryProcessor, it gets back that list of spoons we specified in the test.
+We are telling the NSubstitute mock, that whenever it receives a call to GetAll() it needs to return our expected spoon list. So when the repository is injected into the CutleryProcessor, that is the only behaviour it will know how to perform. When GetAll() is called by the CutleryProcessor, it gets back that list of spoons we specified in the test.
 
 If there were other methods or arguments on the SpoonRepository, we could also set those up to behave in a different way, and our mock would perform every behaviour we setup when called in the specified way. 
 
