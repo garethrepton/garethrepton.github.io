@@ -3,16 +3,15 @@ layout: post
 title: There is no spoon... repository - Mocking in C#
 tags: tdd design c# software-engineering process mocking
 ---
-![A spoon]({{ "/images/spoon.jpeg" | absolute_url }})
-
 What do you do when you need to test a class that accepts a dependency? Thats right, you just give up and don't test it... Not really, you make sure that dependency is properly abstracted in the design and replace it in the test with a Test Double.
 
 And most of the time, the test double of choice is a ***Cough*** Nusbstitute ***Cough*** Mock object... 
 
-#The theory
+![A spoon]({{ "/images/spoon.jpeg" | absolute_url }})
+## The Theory
 Mock objects are pretty simple in theory, you have a subject under test which takes a dependency, for the purpose of the test you don't want to introduce the complexity of the dependency, so you replace it with another object that just does enough to allow the calling class to perform the function you are testing. This allows the test to remain simple, and encourages a nicely decoupled design.
 
-##Lets set the scene
+## Lets set the scene
 Heres our basic code:
 
     {% highlight c# %}
@@ -55,7 +54,7 @@ Heres our basic code:
 
 This is a pretty basic contrived setup, you have a method on CutleryProcessor that uses the spoon repository to get available spoons, then does something with them to return a result. We want to test this "GetAvailableSpoonTypes" method.
 
-##The problem of the spoon repository
+## The problem of the spoon repository
 The spoon repository here presents a problem, you could write the test like this:
 
     {% highlight c# %}
@@ -89,7 +88,7 @@ Unfortunately this means you are at the mercy of the database that the spoon rep
 
 Step in the mock.
 
-##Lets replace the repository with a mock
+## Lets replace the repository with a mock
 So.. we can rewrite this test with an NSubstitute mock pretty easily like so..
 
     {% highlight c# %}
@@ -127,7 +126,7 @@ So.. we can rewrite this test with an NSubstitute mock pretty easily like so..
 
 In one relatively simple step, we've ridden our tests of the data access nonsense, and allowed ourselves to be able to really easily specify the test data, and expected results... 
 
-##Summary
+## Summary
 Thats it..
 
 
