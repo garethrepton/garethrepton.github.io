@@ -127,7 +127,7 @@ So.. we can rewrite this test with an NSubstitute mock pretty easily like so..
 In one relatively simple step, we've ridden our tests of the data access nonsense, and allowed ourselves to be able to really easily specify the test data, and expected results... 
 
 ## Summary
-Thats it..
+Thats it... You can mock dependencies this way for all kinds of things. You can also create other types of test doubles, or even just use the underlying object if its well defined and doesn't introduce complexity, or logically part of that unit being tested.
 
 
 
