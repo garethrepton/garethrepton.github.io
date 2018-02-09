@@ -143,7 +143,7 @@ The true beauty of this approach is you don't need to write reams of code to com
 ## Summary
 Thats it... You can mock dependencies this way for all kinds of things. You can also create other types of test doubles, or even just use the underlying object if its well defined and doesn't introduce complexity, or logically part of that unit being tested.
 
-If you've found this interesting, and want to learn more about Mocking with NSubstitute, it has great documentation here [NSubstitute](http://nsubstitute.github.io/help.html)
+If you've found this interesting, and want to learn more about Mocking with NSubstitute, it has great documentation  [here](http://nsubstitute.github.io/help.html).
 
 
 
