@@ -129,7 +129,10 @@ In one relatively simple step, we've ridden our tests of the data access nonsens
 ## So what does NSubstitute do here?
 The key is here: 
 
+
+    {% highlight c# %}
 repository.GetAll().Returns(spoons);
+        {% endhighlight %}
 
 We are telling the NSubstitute mock, that whenever it receives a call to GetAll() it needs to return our expected spoon list. So when the repository is injected into the CutleryProcessor, that is the only behaviour it will know how to perform. So when GetAll is called by the CutleryProcessor, it gets back that list of spoons we specified in the test.
 
