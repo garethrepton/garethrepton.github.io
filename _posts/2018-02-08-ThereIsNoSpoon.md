@@ -3,9 +3,9 @@ layout: post
 title: There is no spoon... repository - Mocking in C#
 tags: tdd design c# software-engineering process mocking
 ---
-What do you do when you need to test a class that accepts a dependency? Thats right, you just give up and don't test it... Not really, you make sure that dependency is properly abstracted in the design and replace it in the test with a Test Double.
+What do you do when you need to test a class that accepts a dependency? Thats right, you just give up and don't test it... 
 
-And most of the time, the test double of choice is a ***Cough*** Nusbstitute ***Cough*** Mock object... 
+Not really, you make sure that dependency is properly abstracted in the design and replace it in the test with a Test Double. And most of the time, the test double of choice is a ***Cough*** Nusbstitute ***Cough*** Mock object... 
 
 ![A spoon]({{ "/images/spoon.jpeg" | absolute_url }})
 ## The Theory
