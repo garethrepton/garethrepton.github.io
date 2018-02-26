@@ -126,8 +126,24 @@ So.. we can rewrite this test with an NSubstitute mock pretty easily like so..
 
 In one relatively simple step, we've ridden our tests of the data access nonsense, and allowed ourselves to be able to really easily specify the test data, and expected results... 
 
+## So what does NSubstitute do here?
+The key is here: 
+
+
+    {% highlight c# %}
+repository.GetAll().Returns(spoons);
+        {% endhighlight %}
+
+We are telling the NSubstitute mock, that whenever it receives a call to GetAll() it needs to return our expected spoon list. So when the repository is injected into the CutleryProcessor, that is the only behaviour it will know how to perform. When GetAll() is called by the CutleryProcessor, it gets back that list of spoons we specified in the test.
+
+If there were other methods or arguments on the SpoonRepository, we could also set those up to behave in a different way, and our mock would perform every behaviour we setup when called in the specified way. 
+
+The true beauty of this approach is you don't need to write reams of code to completely modify what the mock does, unlike if you were writing a custom test double per behaviour. Also the behaviour we expect is embedded in our test code and is easily readable.
+
 ## Summary
 Thats it... You can mock dependencies this way for all kinds of things. You can also create other types of test doubles, or even just use the underlying object if its well defined and doesn't introduce complexity, or logically part of that unit being tested.
+
+If you've found this interesting, and want to learn more about Mocking with NSubstitute, it has great documentation  [here](http://nsubstitute.github.io/help.html).
 
 
 
