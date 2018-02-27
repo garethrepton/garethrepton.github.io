@@ -57,8 +57,10 @@ Also see the Stephen Cleary [article](https://blog.stephencleary.com/2013/11/the
 
 # Async Contexts
 <TODO>
+
 # Always return a task
-<TODO>
+Avoid returning 'void' where possible and instead return 'Task'. Not doing this can mean exceptions bypass your exception logic and may kill your applications main thread or be caught by top level error handlers. It also means you can't call .Wait or .Result on the method to run it synchronously.
+
 # The Good
  - On the face of things, and for fairly simple cases, async await provides a fantastically simple solution to a traditionally complex problem (preventing blocking in apps).  Its far far simpler than managing threads, and locks yourself;
 
@@ -80,8 +82,9 @@ See also.. there are lots of excelle
 https://docs.microsoft.com/en-us/dotnet/csharp/async
 
 
+https://msdn.microsoft.com/en-us/magazine/jj991977.aspx
 
-
+https://blogs.msdn.microsoft.com/pfxteam/2012/01/20/await-synchronizationcontext-and-console-apps/
 
 
 
