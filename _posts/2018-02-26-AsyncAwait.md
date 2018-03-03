@@ -91,7 +91,7 @@ By default, console apps do not have an async context, so you have to give it on
  - Error messages just got a whole lot more difficult, you often end up with "A task was cancelled" instead of the error you actually want.
 
 # In Conclusion
-Async await is a fantastic tool to prevent blocking calls blocking threads and keep an application responsive in .Net. However, as with most things, it requires much deeper knowledge than just the syntax to not get into trouble with it, it doesn't work how most people first think it will work. It doesn't really fit well in all applications, for example, it would probably just complicate a necessarily multi threaded application. 
+Async await is a fantastic tool to prevent blocking calls blocking threads and keep an application responsive in .Net. However, as with most things, it requires much deeper knowledge than just the syntax to not get into trouble with it, it doesn't work how most people first think it will work. It doesn't really fit well in all applications, for example, it would probably just complicate a necessarily multi threaded application, but could still be used if you had a use case for it.
 
 # Further reading
 See also.. there are lots of excellent articles on async await, several written by Stephen Cleary, but also many from other Authors.. See:
