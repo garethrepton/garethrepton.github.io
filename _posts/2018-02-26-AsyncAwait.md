@@ -93,16 +93,16 @@ By default, console apps do not have an async context, so you have to give it on
 # In Conclusion
 Async await is a fantastic tool to prevent blocking calls blocking threads and keep an application responsive in .Net. However, as with most things, it requires much deeper knowledge than just the syntax to not get into trouble with it, it doesn't work how most people first think it will work. It doesn't really fit well in all applications, for example, it would probably just complicate a necessarily multi threaded application. 
 
-#Further reading
+# Further reading
 See also.. there are lots of excellent articles on async await, several written by Stephen Cleary, but also many from other Authors.. See:
 
- - https://blog.stephencleary.com/2012/02/async-and-await.html
+ - [Stephen Cleary: async and await](https://blog.stephencleary.com/2012/02/async-and-await.html)
 
- - https://docs.microsoft.com/en-us/dotnet/csharp/async
+ - [Microsoft: async](https://docs.microsoft.com/en-us/dotnet/csharp/async)
 
- - https://msdn.microsoft.com/en-us/magazine/jj991977.aspx
+ - [Stephen Cleary: async best practices](https://msdn.microsoft.com/en-us/magazine/jj991977.aspx)
 
- - https://blogs.msdn.microsoft.com/pfxteam/2012/01/20/await-synchronizationcontext-and-console-apps/
+ - [Stephen Cleary: async console apps](https://blogs.msdn.microsoft.com/pfxteam/2012/01/20/await-synchronizationcontext-and-console-apps/)
 
 
 
