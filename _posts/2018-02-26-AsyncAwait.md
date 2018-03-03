@@ -1,6 +1,6 @@
 ---
 layout: post
-title: .Net Async Await, the good, the bad and the deadlocks
+title: .Net Async Await, the Good, the Bad and the Deadlocks
 tags: design c# software-engineering process
 ---
 
