@@ -4,10 +4,68 @@ title: SQL Server Temporal Tables and Rowversions
 tags: sqlserver rowversions temporal tables
 ---
 
-This is more of a note than a full post. I was intruiged to see how a table with System_Versioning enabled would behave if it had a rowversion on the primary table, and how it would get inserted to the history table. 
+I was intrigued to see how a table with System_Versioning enabled would behave if it had a rowversion on the primary table, and how it would get inserted to the history table. 
 
-The short answer is that it copies the rowversion of the previous change to the record into the history table. This feels slightly counterintuitive from a rowversion perspective as every change to a row will generate a new database level rowversion and set it on that record. But it is inkeeping with how temporal tables work (i.e. theres no state except the start/end dates so a record is copied exactly into the history table).
+The short answer is that it copies the rowversion of the previous change to the record into the history table. This feels slightly counterintuitive from a rowversion perspective as every change to a row will generate a new database level rowversion and set it on that record. But it is in-keeping with how temporal tables work in SQLServer (i.e. theres no state except the start/end dates so a record is copied exactly into the history table).
 
-It should also be noted that there doesnt appear to be a way to add a rowversion to the history table either. I.e. it must match the primary tables columns, so no you can't just st it the other column to varbinary and add a new rowversion column.
+It should also be noted that there doesn't appear to be a way to add a rowversion to the history table either. I.e. it must match the primary tables columns, so no you can't just set the column to varbinary and add a new rowversion column that behaves more like a rowversion.
 
-## Heres the Proof
+## Heres some Proof
+
+
+    {% highlight SQL %}
+
+        DROP TABLE Test;
+
+        CREATE TABLE Test (
+            Id INT IDENTITY PRIMARY KEY NOT NULL,
+            Name NVARCHAR(50),
+            [RowVersion] TIMESTAMP,
+            [SysStartTime] [DATETIME2](0) GENERATED ALWAYS AS ROW START NOT NULL,
+            [SysEndTime] [DATETIME2](0) GENERATED ALWAYS AS ROW END NOT NULL,
+            PERIOD FOR SYSTEM_TIME ([SysStartTime], [SysEndTime]));
+
+        ALTER TABLE [dbo].Test    
+        SET    
+        (  
+        SYSTEM_VERSIONING = ON (HISTORY_TABLE = [dbo].TestHistory)  
+        ); 
+
+        INSERT INTO dbo.Test
+        (
+            Name
+        )
+        VALUES
+        (N'Testing1'),
+        (N'Testing2'),
+        (N'Testing3')
+
+        select * from Test
+        select * from TestHistory
+
+        UPDATE Test SET Name = 'Testing2 - 1' WHERE Name = 'Testing2'
+
+        select * from Test
+        select * from TestHistory
+
+        delete from Test WHERE Name = 'Testing2 - 1'
+
+        select * from Test
+        select * from TestHistory
+
+    {% endhighlight %}
+
+The first select produces:
+
+The second:
+
+As we can see... the row version placed into the history table on the second select is the rowversion for when the first was inserted.
+
+And the third select:
+
+
+
+
+
+
+
