@@ -15,8 +15,6 @@ It should also be noted that there doesn't appear to be a way to add a rowversio
 
     {% highlight SQL %}
 
-        DROP TABLE tmp;
-
         CREATE TABLE tmp (
             Id INT IDENTITY PRIMARY KEY NOT NULL,
             Name NVARCHAR(50),
