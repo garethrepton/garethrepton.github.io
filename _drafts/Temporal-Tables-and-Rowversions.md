@@ -15,9 +15,9 @@ It should also be noted that there doesn't appear to be a way to add a rowversio
 
     {% highlight SQL %}
 
-        DROP TABLE Test;
+        DROP TABLE tmp;
 
-        CREATE TABLE Test (
+        CREATE TABLE tmp (
             Id INT IDENTITY PRIMARY KEY NOT NULL,
             Name NVARCHAR(50),
             [RowVersion] TIMESTAMP,
@@ -25,13 +25,13 @@ It should also be noted that there doesn't appear to be a way to add a rowversio
             [SysEndTime] [DATETIME2](0) GENERATED ALWAYS AS ROW END NOT NULL,
             PERIOD FOR SYSTEM_TIME ([SysStartTime], [SysEndTime]));
 
-        ALTER TABLE [dbo].Test    
+        ALTER TABLE [dbo].tmp    
         SET    
         (  
-        SYSTEM_VERSIONING = ON (HISTORY_TABLE = [dbo].TestHistory)  
+        SYSTEM_VERSIONING = ON (HISTORY_TABLE = [dbo].tmpHistory)  
         ); 
 
-        INSERT INTO dbo.Test
+        INSERT INTO dbo.tmp
         (
             Name
         )
@@ -40,18 +40,18 @@ It should also be noted that there doesn't appear to be a way to add a rowversio
         (N'Testing2'),
         (N'Testing3')
 
-        select * from Test
-        select * from TestHistory
+        select * from tmp
+        select * from tmpHistory
 
-        UPDATE Test SET Name = 'Testing2 - 1' WHERE Name = 'Testing2'
+        UPDATE tmp SET Name = 'Testing2 - 1' WHERE Name = 'Testing2'
 
-        select * from Test
-        select * from TestHistory
+        select * from tmp
+        select * from tmpHistory
 
-        delete from Test WHERE Name = 'Testing2 - 1'
-
-        select * from Test
-        select * from TestHistory
+        delete from tmp WHERE Name = 'Testing2 - 1'
+        
+        select * from tmp
+        select * from tmpHistory
 
     {% endhighlight %}
 
