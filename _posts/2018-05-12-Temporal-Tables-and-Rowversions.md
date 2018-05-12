@@ -39,8 +39,7 @@ It should also be noted that there doesn't appear to be a way to add a rowversio
         (N'Testing3')
 
         select * from tmp
-        select * from tmpHistory
-
+     
         UPDATE tmp SET Name = 'Testing2 - 1' WHERE Name = 'Testing2'
 
         select * from tmp
@@ -53,14 +52,17 @@ It should also be noted that there doesn't appear to be a way to add a rowversio
 
     {% endhighlight %}
 
-The first select produces:
+The first 3 selects produce:
 
-The second:
+{{ "/images/rowversiontemporal1.png" | absolute_url }}
 
-As we can see... the row version placed into the history table on the second select is the rowversion for when the first was inserted.
+As we can see... the row version placed into the history table on the second select is the rowversion for when the first was inserted, and is not updated when it is placed into the history table.
 
-And the third select:
+And the third select (i.e. the delete):
 
+{{ "/images/rowversiontemporal1.png" | absolute_url }}
+
+The newly added history record contains the rowversion from the previous update statement.
 
 
 
