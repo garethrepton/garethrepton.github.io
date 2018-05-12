@@ -54,13 +54,12 @@ It should also be noted that there doesn't appear to be a way to add a rowversio
 
 The first 3 selects produce:
 
-{{ "/images/rowversiontemporal1.png" | absolute_url }}
+![firstselects]/images/rowversiontemporal1.png){:class="img-responsive"}
 
 As we can see... the row version placed into the history table on the second select is the rowversion for when the first was inserted, and is not updated when it is placed into the history table.
 
 And the third select (i.e. the delete):
-
-{{ "/images/rowversiontemporal1.png" | absolute_url }}
+![deleteselects]/images/rowversiontemporal2.png){:class="img-responsive"}
 
 The newly added history record contains the rowversion from the previous update statement.
 
