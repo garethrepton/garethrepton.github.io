@@ -85,14 +85,14 @@ So now in our test we can replace the clock with a mock, and simulate the time.
 public void MarksMyObjectAsCreatedAtTheCurrentTime()
 {
    //Arrange
-   var date = DateTime.UtcNow;
+   var expectedDate = DateTime.UtcNow;
    var clock = Substitute.For<IClock>();
-   clock.UtcNow.Returns(date); //The important bit
+   clock.UtcNow.Returns(expectedDate); //The important bit
    var target = new MyObjectFactory(clock);
    //Act
    var result = target.Create();
    //Assert
-   result.CreationDate.Should().Be(date);
+   result.CreationDate.Should().Be(expectedDate);
 }
      {% endhighlight %}
 
