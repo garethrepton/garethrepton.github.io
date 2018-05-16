@@ -39,9 +39,9 @@ And the test might look like:
 public void MarksMyObjectAsCreatedAtTheCurrentTime()
 {
    //Arrange
-    var target = new MyObjectFactory();
+   var target = new MyObjectFactory();
    //Act
-    var result = target.Create();
+   var result = target.Create();
    //Assert
    result.CreationDate.Should().Be(<What can we do here??>);
 }
@@ -87,9 +87,9 @@ public void MarksMyObjectAsCreatedAtTheCurrentTime()
    var date = DateTime.UtcNow;
    var clock = Substitute.For<IClock>();
    clock.UtcNow.Returns(date); //The important bit
-    var target = new MyObjectFactory();
+   var target = new MyObjectFactory(clock);
    //Act
-    var result = target.Create();
+   var result = target.Create();
    //Assert
    result.CreationDate.Should().Be(date);
 }
