@@ -48,6 +48,7 @@ public void MarksMyObjectAsCreatedAtTheCurrentTime()
 
      {% endhighlight %}
 
+So.. we have the current UtcDate being set inside the test method, but from outside we cannot control the value that we're expecting, this is a bit of a pain, and solutions without controlling the datetime being set may lead to brittle tests (i.e. Any time within the last second would be fine, until for some reason the test takes longer than that to run, and fails).
 
 ## The Solution
 Encapsulate the external dependency in a wrapper that just provides the functionality that you require to use.
