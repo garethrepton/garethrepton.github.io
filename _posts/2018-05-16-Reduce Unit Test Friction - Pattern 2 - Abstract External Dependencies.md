@@ -98,6 +98,8 @@ public void MarksMyObjectAsCreatedAtTheCurrentTime()
 ## When its applicable
 This is most applicable when dealing with non-trivial things that you can't mock, so pretty much anything talking to something external, that hasn't got a mockable interface and therefore cannot simply be replaced in the test. 
 
+Granted DateTime might be a contrived example as you might not really care about the creation date in this case, but its actually quite a good representation of something thats not mockable or controllable , but you might want to control in an isolated way during a test.
+
 
 
 
