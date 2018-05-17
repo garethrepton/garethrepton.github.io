@@ -27,7 +27,7 @@ public void MarksMyObjectAsCreatedAtTheCurrentTime()
    var target = new MyObjectFactory();
    //Act
    target.StartWork();
-   SpinWait.SpinUntil(x => target.Property != null);
+   SpinWait.SpinUntil(x => target.Property != null, someTimeout);
    var result = target.Property;
    //Assert
     result.Should().BeTrue("Property should have been set to true");
