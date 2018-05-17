@@ -8,9 +8,9 @@ I've decided to write a bunch of patterns and practices up in a concise way that
 
 The current patterns and practices posts in this series are:
 
-1. [http://www.garethrepton.com/Reduce-Unit-Test-Friction-Pattern-1-Avoid-explicit-construction/] (Pattern 1 - Avoid explicit construction)
-2. [http://www.garethrepton.com/Reduce-Unit-Test-Friction-Pattern-2-Abstract-External-Dependencies/] (Pattern 2 - Abstract external dependencies)
-3. [http://www.garethrepton.com/Reduce-unit-test-friction-patterns-3-Never-create-time-dependent-tests/] (Pattern 3 - Never create time dependent tests)
+1. [Pattern 1 - Avoid explicit construction] (http://www.garethrepton.com/Reduce-Unit-Test-Friction-Pattern-1-Avoid-explicit-construction/)
+2. [Pattern 2 - Abstract external dependencies] (http://www.garethrepton.com/Reduce-Unit-Test-Friction-Pattern-2-Abstract-External-Dependencies/)
+3. [Pattern 3 - Never create time dependent tests] (http://www.garethrepton.com/Reduce-unit-test-friction-patterns-3-Never-create-time-dependent-tests/)
 
 
 
