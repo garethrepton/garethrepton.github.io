@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Dapper-Deferred execution-IQueryable-Async-ToListAsync and the buffered parameter
-tags: unittesting c# patterns autofixture dapper dapperdotnet .Net
+tags: unittesting c# patterns autofixture dapper dapperdotnet dotNet
 ---
 
 ## Intro
