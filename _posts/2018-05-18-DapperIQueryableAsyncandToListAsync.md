@@ -24,10 +24,12 @@ Dapper returns an IEnumerable<int> (it doesn't support IQueryable), which does n
 The answer to this is no. Basically dapper queries include an optional [buffered](http://dapper-tutorial.net/buffered) parameter on their interface which denotes whether the query should load data into a list within the method call, and prevents result streaming through deferred execution when the results are subsequently used. Whats more, the default value for buffered is true, so by default all async dapper queries will execute asynchronously. 
 
 If you explicitly set the buffered parameter to false e.g. 
+
      {% highlight CSharp %}
         var result = await connection.QueryAsync<int>("some query", buffered: false);
         var list = result.ToList();
      {% endhighlight %}
+
 You will get the opposite effect, the results will stream back synchronously when they are iterated and negate most of the use of making the query async (unless your results are faster to read out than your query is to execute). 
 
 This is something to be aware of if you are using Dapper with huge resultsets too as it will mean all that data is streamed into memory at once by default, and you need to set the query so it is not buffered if you wish to make it work in a large dataset friendly way.
