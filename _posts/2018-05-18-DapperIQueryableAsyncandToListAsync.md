@@ -5,7 +5,7 @@ tags: unittesting c# patterns autofixture dapper dapperdotnet dotNet
 ---
 
 ## Intro
-[Dapper](http://dapper-tutorial.net/dapper) is an awesome microorm and generally works the way I'd expect it to, and very quickly, but I fell into a little rabbit hole recently when using Dapper with async in C#, and I thought I'd document what I found out in a mini-post.
+[Dapper](http://dapper-tutorial.net/dapper) is an awesome Micro ORM and generally works the way I'd expect it to, and very quickly, but I fell into a little rabbit hole recently when using Dapper with async in C#, and I thought I'd document what I found out in a mini-post.
 
 ## tl;dr
 When using the {% highlight CSharp %} QueryAsync<T>() {% endhighlight %} extension method in Dapper, the default is to set buffered = true which executes the query asynchronously into a list as part of the method call, and means you don't need to worry about asynchronously streaming the results back to the client when iterating them.
