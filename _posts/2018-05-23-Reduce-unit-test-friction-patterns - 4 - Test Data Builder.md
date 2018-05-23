@@ -117,10 +117,10 @@ Heres an example of one for the zoo:
 
      {% endhighlight %}
 
-In short, it is encapsulating the construction of the zoo, and the animals within it into a single unified, and simplified interface that we can call in the tests. A couple of important points are... 
+In short, it is encapsulating the construction of the zoo, and the animals within it into a single unified, and simplified interface that we can call in the tests. A brief description of what this is doing is:
 
 * To add animals you call the "WithAnimals" method. This returns the ZooBuilder after its appended the new animals, this is to make the api fluent.  This is very powerful as it means test construction can be very clear and succinctly expresses the test setup, for example:{% highlight CSharp %}  new ZooBuilder().WithAnimals("Lion", 3).WithAnimals("Rabbit", 3);    {% endhighlight %}.
-* The build method builds the test data, which in this case is actually the target of the test.
+* The build method constructs our test data, which in this case is actually the target of the test.
 
 This object now massively simplifies our earlier tests and they become:
      {% highlight CSharp %}
