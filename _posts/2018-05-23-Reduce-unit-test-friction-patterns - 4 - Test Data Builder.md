@@ -92,7 +92,7 @@ You can see that even in this simple example, theres repeated object constructio
 ## The Solution
 Use a Test Data Builder to abstract away the data construction for your tests. A  Test Data Builder is a simple fluent object which is usually designed in such a way as to allow you to construct the data for your tests in a simpler, and safer way.
 
-Heres an example of a Test Data Builder for the above example:
+Heres an example of one for the zoo:
 
      {% highlight CSharp %}
     
@@ -117,10 +117,10 @@ Heres an example of a Test Data Builder for the above example:
 
      {% endhighlight %}
 
-So a couple of important points here... 
+In short, it is encapsulating the construction of the zoo, and the animals within it into a single unified, and simplified interface that we can call in the tests. A couple of important points are... 
 
-1. To add an animals (or set of) you call the "WithAnimals" method. This returns the ZooBuilder after its appended the new animals, this is to make the api fluent so you can just do:    {% highlight CSharp %}  new ZooBuilder().WithAnimals("Lion", 3).WithAnimals("Rabbit", 3);    {% endhighlight %}. This is very powerful as it means test construction can be very clear and succinctly expresses the test setup.
-2. The build method builds the test data, which in this case is actually the target of the test.
+* To add animals you call the "WithAnimals" method. This returns the ZooBuilder after its appended the new animals, this is to make the api fluent so you can just do:    {% highlight CSharp %}  new ZooBuilder().WithAnimals("Lion", 3).WithAnimals("Rabbit", 3);    {% endhighlight %}. This is very powerful as it means test construction can be very clear and succinctly expresses the test setup.
+* The build method builds the test data, which in this case is actually the target of the test.
 
 This object now massively simplifies our earlier tests and they become:
      {% highlight CSharp %}
