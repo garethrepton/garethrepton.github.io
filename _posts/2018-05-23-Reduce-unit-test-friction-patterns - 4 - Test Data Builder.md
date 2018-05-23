@@ -87,7 +87,7 @@ A simple example is:
     }
    {% endhighlight %}
 
-You can see that even in this simple example, theres repeated object construction code going on.
+You can see that even in this simple example, theres repeated object construction code going on. This means for example, if animal was changed so it required the name to be set in a constructor parameter instead of just being a property (lets be honest, it probably should be), then both of these tests would cause compilation errors that would need to be fixed.
 
 ## The Solution
 Use a Test Data Builder to abstract away the data construction for your tests. A  Test Data Builder is a simple fluent object which is usually designed in such a way as to allow you to construct the data for your tests in a simpler, and safer way.
