@@ -13,7 +13,7 @@ You have non trivial test data that you need to construct in order to perform yo
 A simple example is: 
 
    {% highlight CSharp %}
- public class Zoo
+   public class Zoo
     {
         public List<Animal> Animals { get; set; }
 
@@ -35,57 +35,56 @@ A simple example is:
 
         public bool IsFed { get; set; } = false;
     }
-        public class ZooTests
+
+    public class ZooTests
+    {
+        [Fact]
+        public void GivenMeatFeedsAllLions()
         {
-            [Fact]
-            public void GivenMeatFeedsAllLions()
-            {
-                //Arrange
-                var zoo = new Zoo();
-                zoo.Animals.Add(new Animal() {Name = "Lion"});
-                zoo.Animals.Add(new Animal() {Name = "Lion"});
-                zoo.Animals.Add(new Animal() {Name = "Lion"});
-                zoo.Animals.Add(new Animal() {Name = "Rabbit"});
-                zoo.Animals.Add(new Animal() {Name = "Rabbit"});
-                zoo.Animals.Add(new Animal() {Name = "Rabbit"});
+            //Arrange
+            var zoo = new Zoo();
+            zoo.Animals.Add(new Animal() { Name = "Lion" });
+            zoo.Animals.Add(new Animal() { Name = "Lion" });
+            zoo.Animals.Add(new Animal() { Name = "Lion" });
+            zoo.Animals.Add(new Animal() { Name = "Rabbit" });
+            zoo.Animals.Add(new Animal() { Name = "Rabbit" });
+            zoo.Animals.Add(new Animal() { Name = "Rabbit" });
 
-                //Act
-                zoo.Feed("Meat");
+            //Act
+            zoo.Feed("Meat");
 
-                //Assert
-                var lions = zoo.Animals.Where(x => x.Name == "Lion");
-                var rabbits = zoo.Animals.Where(x => x.Name == "Rabbit");
-                foreach (var lion in lions)
-                    lion.IsFed.Should().BeTrue();
-                foreach (var rabbit in rabbits)
-                    rabbit.IsFed.Should().BeFalse();
-            }
-
-            [Fact]
-            public void GivenCarrotsFeedsAllRabbits()
-            {
-                //Arrange
-                var zoo = new Zoo();
-                zoo.Animals.Add(new Animal() {Name = "Lion"});
-                zoo.Animals.Add(new Animal() {Name = "Lion"});
-                zoo.Animals.Add(new Animal() {Name = "Lion"});
-                zoo.Animals.Add(new Animal() {Name = "Rabbit"});
-                zoo.Animals.Add(new Animal() {Name = "Rabbit"});
-                zoo.Animals.Add(new Animal() {Name = "Rabbit"});
-
-                //Act
-                zoo.Feed("Carrot");
-
-                //Assert
-                var lions = zoo.Animals.Where(x => x.Name == "Lion");
-                var rabbits = zoo.Animals.Where(x => x.Name == "Rabbit");
-                foreach (var lion in lions)
-                    lion.IsFed.Should().BeFalse();
-                foreach (var rabbit in rabbits)
-                    rabbit.IsFed.Should().BeTrue();
-            }
-
+            //Assert
+            var lions = zoo.Animals.Where(x => x.Name == "Lion");
+            var rabbits = zoo.Animals.Where(x => x.Name == "Rabbit");
+            foreach (var lion in lions)
+                lion.IsFed.Should().BeTrue();
+            foreach (var rabbit in rabbits)
+                rabbit.IsFed.Should().BeFalse();
         }
+
+        [Fact]
+        public void GivenCarrotsFeedsAllRabbits()
+        {
+            //Arrange
+            var zoo = new Zoo();
+            zoo.Animals.Add(new Animal() { Name = "Lion" });
+            zoo.Animals.Add(new Animal() { Name = "Lion" });
+            zoo.Animals.Add(new Animal() { Name = "Lion" });
+            zoo.Animals.Add(new Animal() { Name = "Rabbit" });
+            zoo.Animals.Add(new Animal() { Name = "Rabbit" });
+            zoo.Animals.Add(new Animal() { Name = "Rabbit" });
+            //Act
+            zoo.Feed("Carrot");
+
+            //Assert
+            var lions = zoo.Animals.Where(x => x.Name == "Lion");
+            var rabbits = zoo.Animals.Where(x => x.Name == "Rabbit");
+            foreach (var lion in lions)
+                lion.IsFed.Should().BeFalse();
+            foreach (var rabbit in rabbits)
+                rabbit.IsFed.Should().BeTrue();
+        }
+    }
    {% endhighlight %}
 
 You can see that even in this simple example, theres repeated object construction code going on.
