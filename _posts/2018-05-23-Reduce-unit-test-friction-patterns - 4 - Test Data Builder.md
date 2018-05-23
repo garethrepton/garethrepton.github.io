@@ -4,7 +4,7 @@ title: Reduce unit test friction patterns - 4 - Test Data Builder
 tags: unittesting c# patterns autofixture
 ---
 
-##Intro
+## Intro
 This was blogged about all the way back in 2007 by Nat Price [here](http://www.natpryce.com/articles/000714.html).
 
 ## The Problem
