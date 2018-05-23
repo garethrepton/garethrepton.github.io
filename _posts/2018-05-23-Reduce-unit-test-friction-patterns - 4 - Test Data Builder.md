@@ -5,7 +5,7 @@ tags: unittesting c# patterns autofixture
 ---
 
 ## Intro
-This was blogged about all the way back in 2007 by Nat Price [here](http://www.natpryce.com/articles/000714.html).
+This was blogged about all the way back in 2007 by Nat Price [here](http://www.natpryce.com/articles/000714.html). Its one of my favourite patterns when tests start to get more complicated, I'm going to keep the examples simple in this explanation, but hopefully it should be easy enough to apply to more complex examples.
 
 ## The Problem
 You have non trivial test data that you need to construct in order to perform your unit tests. Without any type of abstraction, you can quite easily end up repeating yourself in each test, and creating complicated test construction code in lots of places. This can also lead to brittle tests that mean changes to the objects being constructed require large swathes of test changes to make the tests compile again. 
