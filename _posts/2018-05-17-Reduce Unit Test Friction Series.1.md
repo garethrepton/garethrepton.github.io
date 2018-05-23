@@ -13,6 +13,7 @@ The current patterns and practices posts in this series are:
 1. [Pattern 1 - Avoid explicit construction](http://www.garethrepton.com/Reduce-Unit-Test-Friction-Pattern-1-Avoid-explicit-construction/)
 2. [Pattern 2 - Abstract external dependencies](http://www.garethrepton.com/Reduce-Unit-Test-Friction-Pattern-2-Abstract-External-Dependencies/)
 3. [Pattern 3 - Never create time dependent tests](http://www.garethrepton.com/Reduce-unit-test-friction-patterns-3-Never-create-time-dependent-tests/)
+4. [Pattern 4 - Test Data Builder](http://www.garethrepton.com/Reduce-unit-test-friction-patterns-4-Test-Data-Builder/)
 
 
 
