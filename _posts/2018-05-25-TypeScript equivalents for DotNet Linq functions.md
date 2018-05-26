@@ -1,10 +1,10 @@
 ---
 layout: post
-title: TypeScript common linq command equivalents
-tags: typescript c# angular dotnet javascript
+title: TypeScript common linq command equivalents / CheatSheet
+tags: typescript c# angular dotnet javascript cheatsheet
 ---
 
-## Intro
+# Intro
 Linq in c# is a great abstraction, it massively reduces the amount of code to do fairly basic operations, using TypeScript doesn't mean you lose this functionality, its just a little different to achieve many of the operations. In this article I'll run through the basic Linq-To-Object operations, and how you can achieve similar results in TypeScript.
 
 For these examples, I'll keep it simple with a list of Person objects that look like this:
@@ -33,7 +33,7 @@ With the data:
  - Joey - Mr
  - Ross - Dr
 
-## Select (Projection)
+# Select
 To select the names of each person with their title:
 
 ### CSharp
@@ -47,7 +47,7 @@ In TypeScript, the equivalent to select is the map function:
 people.map(x => ({ FullTitle: x.Title + ' ' + x.Name }));
 {% endhighlight %}
 
-## Where (Filtering)
+# Where
 To filter the list to only the people with the title "Mr":
 
 ### CSharp
@@ -60,7 +60,7 @@ people.Where(x => x.Title == "Mr");
 people.filter(x => x.Title == "Mr");
 {% endhighlight %}
 
-## OrderBy
+# OrderBy
 To order the list by Name:
 
 ### CSharp
@@ -74,7 +74,7 @@ In TypeScript, the equivalent to order by is the sort function, but you do have 
 people.sort((x,y) => x.Name > y.Name ? 1 : -1);
 {% endhighlight %}
 
-## GroupBy
+# GroupBy
 To group the list into the various titles:
 
 ### CSharp
@@ -93,7 +93,7 @@ var grouped = people.reduce((g : any, person : Person) => {
 }, {});
 {% endhighlight %}
 
-## FirstOrDefault
+# FirstOrDefault
 To select the first person with the title Mr, or null if none exist:
 
 ### CSharp
@@ -106,7 +106,7 @@ people.FirstOrDefault(x => x.Title == "Mr");
 people.find(x => x.Title == "Mr");
 {% endhighlight %}
 
-## Aggregate
+# Aggregate
 Lets concatenate all the names together:
 
 ### CSharp
