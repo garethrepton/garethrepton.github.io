@@ -33,6 +33,7 @@ With the data:
  - Joey - Mr
  - Ross - Dr
 
+----------------
 # Select
 To select the names of each person with their title:
 
@@ -47,6 +48,7 @@ In TypeScript, the equivalent to select is the map function:
 people.map(x => ({ FullTitle: x.Title + ' ' + x.Name }));
 {% endhighlight %}
 
+----------------
 # Where
 To filter the list to only the people with the title "Mr":
 
@@ -60,6 +62,7 @@ people.Where(x => x.Title == "Mr");
 people.filter(x => x.Title == "Mr");
 {% endhighlight %}
 
+----------------
 # OrderBy
 To order the list by Name:
 
@@ -74,6 +77,7 @@ In TypeScript, the equivalent to order by is the sort function, but you do have 
 people.sort((x,y) => x.Name > y.Name ? 1 : -1);
 {% endhighlight %}
 
+----------------
 # GroupBy
 To group the list into the various titles:
 
@@ -93,6 +97,7 @@ var grouped = people.reduce((g : any, person : Person) => {
 }, {});
 {% endhighlight %}
 
+----------------
 # FirstOrDefault
 To select the first person with the title Mr, or null if none exist:
 
@@ -106,6 +111,7 @@ people.FirstOrDefault(x => x.Title == "Mr");
 people.find(x => x.Title == "Mr");
 {% endhighlight %}
 
+----------------
 # Aggregate
 Lets concatenate all the names together:
 
