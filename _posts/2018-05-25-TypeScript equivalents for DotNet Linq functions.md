@@ -87,9 +87,9 @@ There isn't a simple equivalent to this, the closest thing is probably the reduc
 
 {% highlight TypeScript %}
 var grouped = people.reduce((g : any, person : Person) => {
-g[person.Title] = g[person.Title] || []; //Check the value exists, if not assign a new array
-g[person.Title].push(person); //Push the new value to the array
-return g; //Very important! you need to return the value of g or it will become undefined on the next pass
+    g[person.Title] = g[person.Title] || []; //Check the value exists, if not assign a new array
+    g[person.Title].push(person); //Push the new value to the array
+    return g; //Very important! you need to return the value of g or it will become undefined on the next pass
 }, {});
 {% endhighlight %}
 
