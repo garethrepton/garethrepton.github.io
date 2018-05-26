@@ -10,22 +10,18 @@ Linq in c# is a great abstraction, it massively reduces the amount of code to do
 For these examples, I'll keep it simple with a list of Person objects that look like this:
 
      {% highlight CSharp %}
-   
-   public class Person{
+      public class Person{
        public string Name {get;set;}
        public string Title {get;set;}
    }
-
      {% endhighlight %}
 
     {% highlight TypeScript %}
-   
-class Person
+   class Person
 {
     constructor(public Name: string, public Title: string)
     { }
 }
-
      {% endhighlight %}
 
 (How good is that typescript constructor/field syntax!).
@@ -40,7 +36,7 @@ With the data:
 ## Select (Projection)
 To select the names of each person with their title:
 
-### C#
+### CSharp
      {% highlight CSharp %}
 	people.Select(x => new { FullTitle = $"{x.Title} {x.Name}"});
      {% endhighlight %}
@@ -54,7 +50,7 @@ In TypeScript, the equivalent to select is the map function:
 ## Where (Filtering)
 To filter the list to only the people with the title "Mr":
 
-### C#
+### CSharp
      {% highlight CSharp %}
 	people.Where(x => x.Title == "Mr");
      {% endhighlight %}
@@ -67,7 +63,7 @@ To filter the list to only the people with the title "Mr":
 ## OrderBy
 To order the list by Name:
 
-### C#
+### CSharp
      {% highlight CSharp %}
 	people.OrderBy(x => x.Name);
      {% endhighlight %}
@@ -81,7 +77,7 @@ In TypeScript, the equivalent to order by is the sort function, but you do have 
 ## GroupBy
 To group the list into the various titles:
 
-### C#
+### CSharp
      {% highlight CSharp %}
 	people.GroupBy(x => x.Title);
      {% endhighlight %}
@@ -100,7 +96,7 @@ var grouped = people.reduce((g : any, person : Person) => {
 ## FirstOrDefault
 To select the first person with the title Mr, or null if none exist:
 
-### C#
+### CSharp
      {% highlight CSharp %}
 	people.FirstOrDefault(x => x.Title == "Mr");
      {% endhighlight %}
@@ -113,7 +109,7 @@ To select the first person with the title Mr, or null if none exist:
 ## Aggregate
 Lets concatenate all the names together:
 
-### C#
+### CSharp
      {% highlight CSharp %}
 	 people.Select(x => x.Name).Aggregate((x,y) => x = x + "" + y).Dump();
      {% endhighlight %}
