@@ -4,7 +4,7 @@ title: TypeScript common linq command equivalents / CheatSheet
 tags: typescript c# angular dotnet javascript cheatsheet
 ---
 
-# Intro
+## Intro
 Linq in c# is a great abstraction, it massively reduces the amount of code to do fairly basic operations, using TypeScript doesn't mean you lose this functionality, its just a little different to achieve many of the operations. In this article I'll run through the basic Linq-To-Object operations, and how you can achieve similar results in TypeScript.
 
 For these examples, I'll keep it simple with a list of Person objects that look like this:
