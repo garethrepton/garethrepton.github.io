@@ -5,7 +5,7 @@ tags: c# dotnet oo object-oriented development software microsoft
 ---
 
 ## Intro
-I got a message from the guys at NDepend asking me to try out a full version of their software, and I do like a good tool to simplify some of the more complicated development tasks, so heres a really quick post on what I found most useful on initial usage.
+I got a message from the guys at [NDepend](https://www.ndepend.com/) asking me to try out a full version of their software, and I do like a good tool to simplify some of the more complicated development tasks, so heres a really quick post on what I found most useful on initial usage.
 
 ### So what is it and what does it do?
 NDepend is a little different to your standard dev tools, most tools are there to assist with the development process, I see NDepend as a tool to assist in the cleaning up and monitoring of a project to prevent it becoming unruly. It does things like: 
