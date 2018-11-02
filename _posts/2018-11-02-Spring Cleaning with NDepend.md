@@ -19,7 +19,7 @@ NDepend is a little different to your standard dev tools, most tools are there t
  
 Thats a lot of stats and tools... I'm going to look at a very small subset of this for the purposes of this post, because theres just so much in there. I'm going to focus on things that help clean up/monitor an existing side project visual studio solution I have lying around.
 
-## Useful cleanup rules
+## Useful cleanup rules & features
 I'm not normally one for blindly enforcing specific rules in a codebase after some bad experiences in the past with the Cop tools a while back. But I do think they have their place, especially when it comes to tidying up a solution and monitoring high level code quality.
 
 ### Avoid Defining multiple types in source code files
@@ -31,9 +31,7 @@ This one speaks for itself, its quite handy just to see all of the files where t
 ### Avoid having different types with the same name
 This one is probably more applicable to larger projects, but very useful. It will tell you if theres anything in your solution in different namespaces, but with the same name. This can be pretty annoying when it happens as its easy to include the wrong one in your code and end up with weird behaviour.
 
-## Other things I found useful immediately
-
-### Lines of code
+### Count of Lines of code
 This is quite an accurate reflection of the number of lines of code in the solution. Although this isn't necessarily very useful in isolation, whilst you are cleaning up a solution it can be quite a good indicator of how its going. I found this particularly useful for seeing just how much unused code I had deleted.
 
 ### Ability to save a snapshot
@@ -43,4 +41,4 @@ This is a really good feature, it allows you to store a snapshot, make a bunch o
 This is probably the best auto generated dependency graph tool I've seen and it makes it fairly easy to see if inappropriate references have been added between solution projects. 
 
 ## In Summary
-This has been a really quick roundup of some of the features I found immediately useful with NDepend whilst applying it to an old side project solution I had lying around. I've barely scratched the surface of its features, but I did find it fairly useful. Whilst I don't think it should just be used without interpretation, if its the type of thing you need to monitor/cleanup in a project or solution, I can see how it could be a real time saver.    
+This has been a really quick roundup of some of the features I found immediately useful with NDepend whilst applying it to an old side project solution I had lying around. I've barely scratched the surface of its features, but I did find it fairly useful. Whilst I don't think it should be used without interpretation, if its the type of thing you need to monitor/cleanup in a project or solution, I can see how it could be a real time saver and it was certainly very useful for cleaning up the existing problems in this solution.    
