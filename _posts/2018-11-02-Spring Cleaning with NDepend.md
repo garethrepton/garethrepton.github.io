@@ -17,7 +17,7 @@ NDepend is a little different to your standard dev tools, most tools are there t
  - Produces dependency graphs and analysis for a project.
  - Monitors all of the above over a series of time.
  
-Thats a lot of stats and tools... I'm going to look at a very small subset of this for the purposes of this post, because theres just so much in there. I'm going to focus on things that help clean up/monitor a visual studio solution.
+Thats a lot of stats and tools... I'm going to look at a very small subset of this for the purposes of this post, because theres just so much in there. I'm going to focus on things that help clean up/monitor an existing side project visual studio solution I have lying around.
 
 ##Useful cleanup rules
 I'm not normally one for blindly enforcing specific rules in a codebase after some bad experiences in the past with the Cop tools a while back. But I do think they have their place, especially when it comes to tidying up a solution. 
