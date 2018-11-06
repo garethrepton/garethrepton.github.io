@@ -20,7 +20,7 @@ NDepend is a little different to your standard dev tools, most tools are there t
 Thats a lot of stats and tools... I'm going to look at a very small subset of this for the purposes of this post, because theres just so much in there, and to be honest, this is probably the first thing people are likely to do when getting into using the tool. I'm going to focus on things that help clean up/monitor an existing side project visual studio solution I have lying around.
 
 ## The Rules engine
-NDepend has a bunch of useful rules in it, and once its analysed a solution, gives you a summary of the ones which are violated inside a solution. On a small project, these are normally easy to spot manually, but on a large project, this view gives a really useful summary of the state of a project. Although it should be stated, it does need interpretation, as usual in coding the answer is often "it depends" and not every rule violation is necessarily something that needs cleaning up, but this is as to be expected.
+NDepend has a bunch of useful rules in it, and once it has analysed a solution, gives you a summary of the rules which are violated. On a small project, these are normally easy to spot manually, but on a large project, this view gives a really useful summary of the state of a project. Although it should be stated, it does need interpretation, as usual in coding the answer is often "it depends" and not every rule violation is necessarily something that needs cleaning up, but this is to be expected.
 
 Now, I'm not going to list all of the rules available, but here are some of my initial favourites that tend to be particularly difficult to spot in a visual studio solution, but NDepend makes pretty easy to see and cleanup.
 
