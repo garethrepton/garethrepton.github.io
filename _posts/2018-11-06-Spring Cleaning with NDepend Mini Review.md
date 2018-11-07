@@ -16,6 +16,7 @@ NDepend is a little different to your standard dev tools, most tools are there t
  - Provides a technical debt report for the project.
  - Produces dependency graphs and analysis for a project.
  - Monitors all of the above over a series of time.
+ - Diff all of the above since a user defined baseline.
  
 Thats a lot of stats and tools... I'm going to look at a very small subset of this for the purposes of this post, because theres just so much in there, and to be honest, this is probably the first thing people are likely to do when getting into using the tool. I'm going to focus on things that help clean up/monitor an existing side project visual studio solution I have lying around.
 
@@ -31,7 +32,7 @@ In a world where the folder structure of a solution is far less important with R
 This one speaks for itself, its quite handy just to see all of the files where their folder does not match their namespace. Seeing them in one place allows you to pick and choose the worst offenders, and monitor for issues getting introduced. Combine this with the ReSharper refactor feature of selecting a folder and moving types into matching namespaces, this makes a very fast way of cleaning up these sorts of issues in a solution.
 
 ### Avoid having different types with the same name
-This one is probably more applicable to larger projects, but very useful. It will tell you if theres anything in your solution in different namespaces, but with the same name. This can be pretty annoying when it happens as its easy to include the wrong one in your code and end up with weird behaviour.
+This one is probably more applicable to larger projects, but very useful. It will tell you if there is anything in your solution in different namespaces, but with the same name. This can be pretty annoying when it happens as its easy to include the wrong one in your code and end up with weird behaviour.
 
 ## Other useful metrics/tools
 I found that there were some other immediately useful and intuitive features that also helped when cleaning the project up:
@@ -39,7 +40,7 @@ I found that there were some other immediately useful and intuitive features tha
 ### Count of Lines of code
 This is quite an accurate reflection of the number of lines of code in the solution. Although this isn't necessarily very useful in isolation, whilst you are cleaning up a solution it can be quite a good indicator of how its going. I found this particularly useful for seeing just how much unused code I had deleted.
 
-### Ability to save a snapshot & compare to previous snapshots
+### Ability to save a snapshot of your code & compare to previous baseline snapshots
 This is a really good feature, it allows you to store a snapshot, make a bunch of fixes to a codebase, and then compare that snapshot to the new snapshot and essentially see your progress on the charts provided. Very useful for keeping things on track over time, and also quite motivating whilst cleaning things up.
 
 ### Dependency Graphing
@@ -52,7 +53,7 @@ I've barely scratched the surface of the features available, but I've thought of
 One of my bug bears in c# is the ease at which a developer can cause chaos (bring down the main thread for example) by not awaiting an async method call. It would be great to see a set of rules in NDepend that highlight potential violations of this. Things like not awaiting a particular method result, or returning void from an async method would truly help, and fit quite neatly into the set of rules that are in NDepend.
 
 ### Dependency mismatch issues
-It can be quite easy in a solution to end up with multiple dependencies within different projects that are incompatible, especially when certain Nuget packages like to redirect in the app.config file. Perhaps it would be possible for an NDepend to detect and highlight these instances too, although this might be a big ask.
+It can be quite easy in a solution to end up with multiple dependencies within different projects that are potentially incompatible, and/or not found, especially when certain Nuget packages like to redirect in the app.config file. For example if you have a version of Newtonsoft.Json thats 4.3 everywhere, but then you install a separate Nuget package into your solution that requires v4.6, and that redirects the dependencies from the app.config file to 4.6 rather than 4.3. This can subsequently cause build & runtime errors on a CI server because the project will be looking for 4.6 when in reality it should be looking for 4.3. Perhaps it would be possible for an NDepend to detect and highlight these instances too, although this might be a big ask, it can be a real pain to debug though.
 
 ## In Summary
 This has been a really quick roundup of some of the features I found immediately useful with NDepend whilst applying it to an old side project solution I had lying around. I've barely scratched the surface of its features, but I did find it pretty useful. Whilst I don't think it should be used without interpretation, if its the type of thing you need to monitor/cleanup in a project or solution, I can see how it could be a real time saver. It was certainly very useful for cleaning up the existing problems in this solution.
