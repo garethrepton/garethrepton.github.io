@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Spring cleaning a visual studio solution with NDepend & mini review
+title: Spring cleaning a visual studio solution with NDepend & Mini Review
 tags: c# dotnet oo object-oriented development software microsoft
 ---
 
