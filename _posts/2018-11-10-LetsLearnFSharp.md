@@ -1,8 +1,10 @@
 ---
 layout: post
-title: lets(learn(fsharp(""))) - Day 1 of functional programming for the object oriented inclined
+title: Day 1 of functional programming for the object oriented inclined
 tags: design f# software-engineering process .Net FSharp FunctionalProgramming
 ---
+
+## lets(learn(fsharp("")))
 
      {% highlight FSharp %}
 
