@@ -17,7 +17,7 @@ tags: design f# software-engineering process .Net FSharp FunctionalProgramming
 
      {% endhighlight %}
 
-![My first f# program]({{ "/images/fsharp1.jpeg" | absolute_url }})
+![My first f# program]({{ "/images/fsharp1.png" | absolute_url }})
 
 ## Intro
 So I've decided to learn a bit more about functional programming, the more I hear about it the more I quite like it. I've been listening to the excellent [LambdaCast](https://twitter.com/lambdacast) and reading some of the articles on [FsharpForFunAndProfit](https://fsharpforfunandprofit.com/) and its clear there appears to be some merit to the functional mindset. I'm also quite interested to understand if I'm already using a certain amount of the functional mindset in my c# code.
