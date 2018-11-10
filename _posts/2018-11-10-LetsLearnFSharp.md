@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Day 1 of functional programming for the object oriented inclined
+title: Day 1 of functional programming for an OO developer
 tags: design f# software-engineering process .Net FSharp FunctionalProgramming
 ---
 
