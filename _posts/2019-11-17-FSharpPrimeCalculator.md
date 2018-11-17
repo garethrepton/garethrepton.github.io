@@ -22,7 +22,7 @@ First of all, a few rules I've picked up on F# from reading various sources (pri
 * **Functions in F# are much, much more succinct that C#** - FSharp does not require the types of declarations that need to be done in C# to pass around functions, most stuff is inferred.
 * **I still don't quite know what a Monad is** - :)
 
-The f# solution I came up with is:
+The F# solution I came up with is:
 
      {% highlight FSharp %}
 
