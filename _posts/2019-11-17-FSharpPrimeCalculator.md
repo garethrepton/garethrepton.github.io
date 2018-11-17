@@ -83,10 +83,12 @@ This outputs:
     4. Piping that to concat (the argument is inferred by the pipe)
     5. Piping that to print (the argument is inferred by the pipe)
 
-##Observations
+## Observations
 There are some fairly interesting things emerging from this code. EVERYTHING is really a function, and you are encouraged to write very small functions, this leads to a world where everything is also composable. This is a very powerful difference between Functional and OO paradigms, where OO encourages composition in the form of objects, F# encourages composition in the form of functions. You can do some of this in C# by passing around Func<T..>, it just never quite feels right in the language, it always feels like a bit of a hack. Whereas in F#, everything is a Func, and it makes the passing around of functions more natural, but also much more readable than C#. I'm not sure how this looks in a larger application yet, but this also means you could probably write a function once, and use everywhere in the application, especially higher order functions whose argument types could vary with the functions that are passed into them. You can also do this in C# but there are static types, generics, and type arguments that need to be specified, that just feel a bit like they get in the way of it.
 
 Another interesting thing here is that 3. actually just looks a whole lot like a lambda chain in C#. Thats because the Lambda functions in C# are basically a bit of functional declarative programming that C# developers can, and probably do use every day. So thats good news :).
+
+## And finally
 
 With these thoughts in mind, I've thought of a small refactor that can be made to make this more functional still...
 
