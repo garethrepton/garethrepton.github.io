@@ -1,6 +1,6 @@
 ---
 layout: post
-title: FSharp - Thinking a bit more functionally for a Prime number calculator
+title: FSharp - Thinking a bit more functionally for a prime number calculator
 tags: design f# software-engineering process .Net FSharp FunctionalProgramming
 ---
 
