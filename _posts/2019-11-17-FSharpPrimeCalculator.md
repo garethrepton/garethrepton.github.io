@@ -48,7 +48,7 @@ The F# solution I came up with is:
 This outputs:
 
      {% highlight PlainText %}
-        2, True)
+        (2, True)
         (3, True)
         (4, False)
         (5, True)
