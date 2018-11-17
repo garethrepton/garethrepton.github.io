@@ -112,7 +112,7 @@ New code:
 
      {% endhighlight %}
 
-So what did I do? I changed the "totalDiv" function to take in a function, and renamed it to "matches", I also changed the way its called in isPrime to pass the isDivisible function. So we're then left with three very specific functions that each only care about 1 thing, and "matches" is now very general, we could pass it any function that takes two values and returns a boolean.
+So what did I do? I changed the "totalDiv" function to take in a function, and renamed it to "matches", I also changed the way it gets called in isPrime to pass the isDivisible function. So we're then left with three very specific functions that each only care about 1 thing, and "matches" is now very general, we could pass it any function that takes two values and returns a boolean.
 
 
 
