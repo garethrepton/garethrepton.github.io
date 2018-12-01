@@ -26,7 +26,7 @@ This next code also produces the number 3 in F#:
 {% endhighlight %} 
 _Example 2_ 
 
-The second solution is using something called partial application, and its a bit weird for us OO devs.
+The second solution is using something called partial application, and its a bit weird for us OO developers.
 
 ## What is partial application?
 Partial application is the act of partially applying a function to create a new function and is allowed in functional languages because they do currying. 
@@ -94,7 +94,7 @@ OK, so far very similar really.
 **Wait**... all those times are the same in the F# example? 
 
 ### Function calls are not always re-evaluated
-This is something that tripped me up at first writing this, but theres a reason for it, when you call a function without arguments the value it returns is bound to the function call, it does not get re-executed. If you call a function with arguments the function is what gets bound to the variable, so each time you call this, you have to specify its parameters, and it will re-execute. Now in our case, we have no arguments, so we will need to supply the "Unit" type to the function, which means using "()" as the single argument to the getDate function, and as the first argument to the partial logg function to ensure both get reexecuted on each call, and we get the right datetimes printed to the log. 
+This is something that tripped me up at first writing this, but theres a reason for it, when you call a function without arguments the value it returns is bound to the function call, it does not get re-executed. If you call a function with arguments the function is what gets bound to the variable, so each time you call this, you have to specify its parameters, and it will re-execute. Now in our case, we have no arguments, so we will need to supply the "Unit" type to the function, which means using "()" as the single argument to the getDate function, and as the first argument to the partial logg function to ensure both get re-executed on each call, and we get the right times printed to the log. 
 
 ### Partially applied version
 Lets modify the F# version to use the unit parameter and partial application for the log getDate argument:
@@ -120,7 +120,7 @@ _Printing_:
 * 01/12/2018 07:12:38 Second
 * 01/12/2018 07:12:39 Third
 
-This time things start to look a little different in a couple of ways. The first is that I've modified the logg function and getdate to take the unit parameter to make sure they re-execute each time and don't memoize their values, this is slightly less succinct, but acceptable.
+This time things start to look a little different in a couple of ways. The first is that I've modified the `logg` function and `getDate` to take the unit parameter to make sure they re-execute each time and don't memoize their values, this is slightly less succinct, but acceptable.
 
 The other major difference is that I've made the call to log slightly more succinct by creating a new function called logg which is the result of partially applying log with just the getDate part. This same effect could be achieved in C# with an optional parameter on the date argument, and an if statement to set it, but it takes more code, so the F# version is more succinct even in this really simple example. Personally I think the F# version looks much better in this case.
 
@@ -241,10 +241,10 @@ I'd say thats a pretty good example of how partial application can be beneficial
 5. logWriters is then our list of loggers;
 6. finally log takes in the message parameter then pipes the list of loggers into an iterator, which calls each in turn with the message passed in.
 
-Really what we've done here is replaced the strategy pattern we used for the set of ILogWriter's in C# with a pair of "Strategy" functions. So `FakeSqlLogWriter` becomes the function `logFakeSql` and `ConsoleLogWriter` becomes `logActualConsole`. We've also replace the dependency injection with our log function, which takes in the partially applied logFakeSql and logActualConsole functions, and completes their call with the message parameter. **Its like we're doing object composition, but its a level lower at the function level, so the "Framework" code required to plumb it all together is massively reduced**. We're composing functions together here with minimal code, and fuss (except that unit parameter), and its much much more succinct than the c# version, but it still expresses what its doing effectively, probably more effectively than in C# as theres less code to read. 
+Really what we've done here is replaced the strategy pattern we used for the set of ILogWriter's in C# with a pair of "Strategy" functions. So `FakeSqlLogWriter` becomes the function `logFakeSql` and `ConsoleLogWriter` becomes `logActualConsole`. We've also replaced the dependency injection with our log function, which takes in the partially applied logFakeSql and logActualConsole functions, and completes their call with the message parameter. **Its like we're doing object composition, but its a level lower at the function level, so the "Framework" code required to plumb it all together is massively reduced**. We're composing functions together here with minimal code, and fuss (except that unit parameter), and its much much more succinct than the c# version, but it still expresses what its doing effectively, probably more effectively than in C# as theres less code to read. 
 
 ## Summary
-Partial application is a functional concept thats made possible because F# uses currying to make sure that all functions actually have a single parameter. Its very powerful (I'm sure there are many weird and wonderful uses for it I've not even considered yet), but with this power comes a little extra complexity, I can see the unit parameter being a bit like the deferred execution issues you get with Develpers new to Linq. It is yet another tool in F# that allows for writing succinct, yet readable code, something thats very hard to do in C#, especially using pure object oriented features.
+Partial application is a functional concept thats made possible because F# uses currying to make sure that all functions actually have a single parameter. Its very powerful (I'm sure there are many weird and wonderful uses for it I've not even considered yet), but with this power comes a little extra complexity, I can see the unit parameter being a bit like the deferred execution issues you get with Developers new to Linq. It is yet another tool in F# that allows for writing succinct, yet readable code, something thats very hard to do in C#, especially using pure object oriented features.
 
 ## A few resources I've read/used
 This started as a simple post about partial application, but turned into a bit more so I've read quite a lot to get to this point, here are a few of the resources I've used to learn about the concepts:
