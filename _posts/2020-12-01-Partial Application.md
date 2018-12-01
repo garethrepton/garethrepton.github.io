@@ -94,7 +94,7 @@ OK, so far very similar really.
 **Wait**... all those times are the same in the F# example? 
 
 ### Function calls are not always re-evaluated
-This is something that tripped me up at first writing this, but theres a reason for it, when you call a function without arguments the value it returns is bound to the function call, it does not get re-executed. If you call a function with arguments the function is what gets bound to the variable, so each time you call this, you have to specify its parameters, and it will re-execute. Now in our case, we have no arguments, so we will need to supply the "Unit" type to the function, which means using "()" as the single argument to the getDate function, and as the first argument to the partial logg function to ensure both get re-executed on each call, and we get the right times printed to the log. 
+This is something that tripped me up at first writing this, but theres a reason for it, when you call a function without arguments the value it returns is bound to the function call, it does not get re-executed. If you call a function with arguments the function gets bound to the variable, so each time you call it, it will re-execute. Now in our case, we have no arguments, so we will need to supply the `Unit` type to the function, which means using `()` as the single argument to the `getDate` function, and as the first argument to the partial `logg` function to ensure both get re-executed on each call, and we get the right times printed to the log. 
 
 ### Partially applied version
 Lets modify the F# version to use the unit parameter and partial application for the log getDate argument:
