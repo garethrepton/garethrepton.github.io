@@ -62,7 +62,7 @@ public static void Log(DateTime time, string message)
 
 {% endhighlight %}  
 
-Printing:
+_Printing_:
 * 30/11/2018 18:30:52 - First
 * 30/11/2018 18:30:53 - Second
 * 30/11/2018 18:30:54 - Third
@@ -84,7 +84,7 @@ sleep 1000
 
 {% endhighlight %}  
 
-Printing: 
+_Printing_: 
 * 30/11/2018 18:34:50 first
 * 30/11/2018 18:34:50 second
 * 30/11/2018 18:34:50 third
@@ -114,7 +114,7 @@ sleep 1000
 
 {% endhighlight %}  
 
-Printing: 
+_Printing_: 
 * 01/12/2018 07:12:37 First
 * 01/12/2018 07:12:38 Second
 * 01/12/2018 07:12:39 Third
@@ -185,9 +185,9 @@ public class FakeSqlLogWriter : ILogWriter
 
 {% endhighlight %}  
 
-54 lines of code.
+**54 lines of code**
 
-Printing: 
+_Printing_: 
 * Tester - 30/11/2018 19:02:41 - First
 * IAMSQL: Tester - 30/11/2018 19:02:41 - First
 * Tester - 30/11/2018 19:02:42 - Second
@@ -221,9 +221,9 @@ sleep 1000
 
 {% endhighlight %}  
 
-17 lines of code.
+**17 lines of code**.
 
-Printing:
+_Printing_:
 * Tester 01/12/2018 07:19:48 First
 * IAMSQL Tester 01/12/2018 07:19:48 First
 * Tester 01/12/2018 07:19:49 Second
