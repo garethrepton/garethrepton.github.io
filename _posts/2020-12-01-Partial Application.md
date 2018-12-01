@@ -64,7 +64,9 @@ public static void Log(DateTime time, string message)
 
 Printing:
 > 30/11/2018 18:30:52 - First
+
 > 30/11/2018 18:30:53 - Second
+
 > 30/11/2018 18:30:54 - Third
 
 A direct conversion in F# is something like:
