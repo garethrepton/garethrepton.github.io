@@ -29,7 +29,7 @@ _Example 2_
 The second solution is using something called partial application, and its a bit weird for us OO devs.
 
 ## What is partial application?
-This is called partial application and is allowed in functional languages because they do currying. 
+Partial application is the act of partially applying a function, to create a new function and is allowed in functional languages because they do currying. 
 
 ### Currying 
 Currying is where every function in a language is executed as though it actually has only 1 argument, so in the case of add above it actually executes like this (Add 1) + 2 where (Add 1) is the first function, and x + 2 is the second function where x is the result of (Add 1). Each time you call a function with a parameter, you get back a new function unless you've specified all of the parameters for the function. If we supply all the arguments the first time we call the function like we do in the first example, the currying is transparent and we get the value back that is the result of the add, so r = 3, but internally the currying will still take place.
