@@ -93,6 +93,7 @@ OK, so far very similar really.
 
 **Wait**... all those times are the same in the F# example? This is something that tripped me up at first writing this, but theres a reason for it, when you call a function without arguments the value it returns is bound to the function call, it does not get re-executed. If you call a function with arguments the function is what gets bound to the variable, so each time you call this, you have to specify its parameters, and it will re-execute. Now in our case, we have no arguments, so we will need to supply the "Unit" type to the function, which means using "()" as the single argument to the getDate function, and as the first argument to the partial logg function to ensure both get reexecuted on each call, and we get the right datetimes printed to the log. 
 
+### Partially applied version
 Lets modify the F# version to use the unit parameter and partial application for the log getDate argument:
 
 {% highlight FSharp %}
@@ -120,6 +121,7 @@ This time things start to look a little different in a couple of ways. The first
 
 The other major difference is that I've made the call to log slightly more succinct by creating a new function called logg which is the result of partially applying log with just the getDate part. This same effect could be achieved in C# with an optional parameter on the date argument, and an if statement to set it, but it takes more code, so the F# version is more succinct even in this really simple example. Personally I think the F# version looks much better in this case.
 
+### A more in-depth example
 Lets make this more complicated and see where it goes, lets make the log method capable of outputting to multiple places (simulating a real logging system like Log4Net etc...). 
 
 {% highlight CSharp %}
