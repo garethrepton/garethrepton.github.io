@@ -250,7 +250,7 @@ Partial application is a functional concept thats made possible because F# uses 
 This started as a simple post about partial application, but turned into a bit more so I've read quite a lot to get to this point, here are a few of the resources I've used to learn about the concepts:
 
 [LambdaCast (partial application episode)](https://soundcloud.com/lambda-cast)
-[Currying] (https://fsharpforfunandprofit.com/posts/currying/)
-[Partial Application] (https://fsharpforfunandprofit.com/posts/partial-application/)
-[Information about the unit parameter] (https://stackoverflow.com/questions/17870937/what-does-this-notation-mean/17872004#17872004)
-[Linqpad] (https://www.linqpad.net/)
+[Currying](https://fsharpforfunandprofit.com/posts/currying/)
+[Partial Application](https://fsharpforfunandprofit.com/posts/partial-application/)
+[Information about the unit parameter](https://stackoverflow.com/questions/17870937/what-does-this-notation-mean/17872004#17872004)
+[Linqpad](https://www.linqpad.net/)
