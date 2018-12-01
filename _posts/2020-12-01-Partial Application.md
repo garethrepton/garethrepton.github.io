@@ -234,12 +234,12 @@ _Printing_:
 
 I'd say thats a pretty good example of how partial application can be beneficial. So instead of using the polymorphic approach we used in C#. Our LogWriters become a list of partially applied functions instead of objects. 
 
-1. logConsole is our initial function that actually logs to the console, and accepts a prefix as well as the standard arguments (so we can fake the Sql Log Writer).
-2. logConsolePartial is an intermediate step, we call logConsole partially with the common arguments we're going to use throughout this code. In this case, the sender, and the getDate function.
-3. logActualConsole is then a partial function call to logConsolePartial with no prefix.
-4. logFakeSql is also a partial function call to logConsolePartial with the IAMSQL prefix.
-5. logWriters is then our list of loggers;
-6. finally log takes in the message parameter then pipes the list of loggers into an iterator, which calls each in turn with the message passed in.
+1. `logConsole` is our initial function that actually logs to the console, and accepts a prefix as well as the standard arguments (so we can fake the Sql Log Writer).
+2. `logConsolePartial` is an intermediate step, we call `logConsole` partially with the common arguments we're going to use throughout this code. In this case, the sender, and the getDate function.
+3. `logActualConsole` is then a partial function call to `logConsolePartial` with no prefix.
+4. `logFakeSql` is also a partial function call to `logConsolePartial` with the IAMSQL prefix.
+5. `logWriters` is then our list of loggers;
+6. finally `log` takes in the message parameter then pipes the list of loggers into an iterator, which calls each in turn with the message passed in.
 
 Really what we've done here is replaced the strategy pattern we used for the set of ILogWriter's in C# with a pair of "Strategy" functions. So `FakeSqlLogWriter` becomes the function `logFakeSql` and `ConsoleLogWriter` becomes `logActualConsole`. We've also replaced the dependency injection with our log function, which takes in the partially applied logFakeSql and logActualConsole functions, and completes their call with the message parameter. **Its like we're doing object composition, but its a level lower at the function level, so the "Framework" code required to plumb it all together is massively reduced**. We're composing functions together here with minimal code, and fuss (except that unit parameter), and its much much more succinct than the c# version, but it still expresses what its doing effectively, probably more effectively than in C# as theres less code to read. 
 
