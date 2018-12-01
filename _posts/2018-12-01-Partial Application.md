@@ -129,6 +129,7 @@ Lets make this more complicated and see where it goes, lets make the log method 
 
 {% highlight CSharp %}
 
+
 void Main()
 {
 	var logger = new Logger(new ILogWriter[] { new ConsoleLogWriter(), new FakeSqlLogWriter()});
@@ -141,11 +142,6 @@ void Main()
 	Thread.Sleep(1000);
 }
 
-public static void Log(DateTime time, string message)
-{
-	Console.WriteLine($"{time} - {message}");
-}
-
 // Define other methods and classes here
 public class Logger
 {
@@ -156,7 +152,7 @@ public class Logger
 		this.Writers = writers;
 	}
 
-	public void Log(object sender, DateTime date, string message)
+	public void Log(string sender, DateTime date, string message)
 	{
 		foreach (var writer in Writers)
 			writer.Output(sender, date.ToString(), message);
@@ -165,12 +161,12 @@ public class Logger
 
 public interface ILogWriter
 {
-	void Output(object sender, string time, string message);
+	void Output(string sender, string time, string message);
 }
 
 public class ConsoleLogWriter : ILogWriter
 {
-	public void Output(object sender, string time, string message)
+	public void Output(string sender, string time, string message)
 	{
 		Console.WriteLine($"{sender} - {time} - {message}");
 	}
@@ -178,7 +174,7 @@ public class ConsoleLogWriter : ILogWriter
 
 public class FakeSqlLogWriter : ILogWriter
 {
-	public void Output(object sender, string time, string message)
+	public void Output(string sender, string time, string message)
 	{
 		Console.WriteLine($"IAMSQL: {sender} - {time} - {message}");
 	}
