@@ -4,7 +4,7 @@ title: FSharp - Currying and Partial Application |>  ft w
 tags: design f# currying partial-application unit software-engineering process .Net FSharp FunctionalProgramming
 ---
 
-## Intro
+## Introduction
 A little bit of magic from the functional world...
 
 Read the following 2 examples closely.
@@ -17,7 +17,7 @@ This produces the number 3 in F#:
 {% endhighlight %}
 _Example 1_
 
-This next code also produces the number 3 in F#:
+This code also produces the number 3 in F#:
 
 {% highlight FSharp %}
     let add x y = x + y
