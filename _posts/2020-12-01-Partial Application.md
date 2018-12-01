@@ -87,9 +87,9 @@ sleep 1000
 {% endhighlight %}  
 
 Printing: 
-> 30/11/2018 18:34:50 first
-> 30/11/2018 18:34:50 second
-> 30/11/2018 18:34:50 third
+* 30/11/2018 18:34:50 first
+* 30/11/2018 18:34:50 second
+* 30/11/2018 18:34:50 third
 
 OK, so far very similar really.
 
@@ -114,9 +114,9 @@ sleep 1000
 {% endhighlight %}  
 
 Printing: 
-> 01/12/2018 07:12:37 First
-> 01/12/2018 07:12:38 Second
-> 01/12/2018 07:12:39 Third
+* 01/12/2018 07:12:37 First
+* 01/12/2018 07:12:38 Second
+* 01/12/2018 07:12:39 Third
 
 This time things start to look a little different in a couple of ways. The first is that I've modified the logg function and getdate to take the unit parameter to make sure they re-execute each time and don't memoize their values, this is slightly less succinct, but acceptable.
 
@@ -186,12 +186,12 @@ public class FakeSqlLogWriter : ILogWriter
 54 lines of code.
 
 Printing: 
-> Tester - 30/11/2018 19:02:41 - First
-> IAMSQL: Tester - 30/11/2018 19:02:41 - First
-> Tester - 30/11/2018 19:02:42 - Second
-> IAMSQL: Tester - 30/11/2018 19:02:42 - Second
-> Tester - 30/11/2018 19:02:43 - Third
-> IAMSQL: Tester - 30/11/2018 19:02:43 - Third
+* Tester - 30/11/2018 19:02:41 - First
+* IAMSQL: Tester - 30/11/2018 19:02:41 - First
+* Tester - 30/11/2018 19:02:42 - Second
+* IAMSQL: Tester - 30/11/2018 19:02:42 - Second
+* Tester - 30/11/2018 19:02:43 - Third
+* IAMSQL: Tester - 30/11/2018 19:02:43 - Third
 
 Here I've added a sender argument to our log method, moved it into an object, and added an interface for writing the various types of log output. This is pretty typical of a logger implementation in c# world, I've added and instantiated 2 writers, the first is our console writer, the second is a fake sql writer which just writes to the console anyway with "IAMSQL" at the start of the message. Quite a lot of code but this is a fairly solid object oriented solution.
 
@@ -222,12 +222,12 @@ sleep 1000
 17 lines of code.
 
 Printing:
-> Tester 01/12/2018 07:19:48 First
-> IAMSQL Tester 01/12/2018 07:19:48 First
-> Tester 01/12/2018 07:19:49 Second
-> IAMSQL Tester 01/12/2018 07:19:49 Second
-> Tester 01/12/2018 07:19:50 Third
-> IAMSQL Tester 01/12/2018 07:19:50 Third
+* Tester 01/12/2018 07:19:48 First
+* IAMSQL Tester 01/12/2018 07:19:48 First
+* Tester 01/12/2018 07:19:49 Second
+* IAMSQL Tester 01/12/2018 07:19:49 Second
+* Tester 01/12/2018 07:19:50 Third
+* IAMSQL Tester 01/12/2018 07:19:50 Third
 
 I'd say thats a pretty good example of how partial application can be beneficial. So instead of using the polymorphic approach we used in C#. Our LogWriters become a list of partially applied functions instead of objects. 
 
