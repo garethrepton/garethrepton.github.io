@@ -1,7 +1,7 @@
 ---
 layout: post
 title: FSharp - Currying and Partial Application |>  ft w
-tags: design f# software-engineering process .Net FSharp FunctionalProgramming
+tags: design f# currying partial-application unit software-engineering process .Net FSharp FunctionalProgramming
 ---
 
 ## Intro
