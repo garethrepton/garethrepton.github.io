@@ -15,7 +15,7 @@ This produces the number 3 in F#:
         let add x y = x + y
         let r = add 1 2;
 {% endhighlight %}
-Example 1
+_Example 1_
 
 This next code also produces the number 3 in F#:
 
@@ -24,7 +24,7 @@ This next code also produces the number 3 in F#:
     let partialAdd = add 1
     let r = partialAdd 2
 {% endhighlight %} 
-Example 2 
+_Example 2_ 
 
 The second solution is using something called partial application, and its a bit weird for us OO devs.
 
