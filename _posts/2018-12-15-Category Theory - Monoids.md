@@ -59,6 +59,8 @@ So we've already seen the simplest and most obvious examples these are:
 (4 * 2) * 3 * 1 = 24 //Identity = 1
 {% endhighlight %}
 
+String concatenation also fits too:
+
 * String concatenation
 {% highlight FSharp %}
 "A" + ("B"  + "C") = "ABC"
