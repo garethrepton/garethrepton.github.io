@@ -91,7 +91,7 @@ Similar to subtraction, division is not associative.
 Thats just about it, after thinking about what a monoid is and how it applies to code for a bit I suspect they'll start appearing like when learning about design patterns, it takes a little while to familiarise yourself to the terminology and what to look for. Its a bit harder in this case because the concept is slightly more abstract and the terminology doesn't really imply what it means to anybody except mathematicians. 
 
 ## A few resources I've read/used
-Mostly I've been listening to the category theory episodes of this podcast to learn these techniques
+Mostly I've been listening to the category theory episodes of the lambdacast podcast to learn these techniques, but have also read the following blog posts too:
 * [LambdaCast](https://soundcloud.com/lambda-cast)
 * [Mark Seemann's blog](http://blog.ploeh.dk/2017/10/06/monoids/)
 * [FSharp for fun and profit](https://fsharpforfunandprofit.com/posts/monoids-without-tears/)
