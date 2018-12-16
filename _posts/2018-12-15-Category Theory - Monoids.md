@@ -7,7 +7,7 @@ tags: design f# currying partial-application categorytheory unit software-engine
 ## Introduction
 This is the first post on category theory terms, which is sort of like a mathematical version of design patterns in the functional world, but as you might expect they are at a much lower level than the OO design patterns. 
 
-One particularly weird thing to get your head around with category theory terms, is they don't apply to the data type, or the function in isolation. They apply to the function over a given data type, so its worth bearing this in mind when you read about category theory.
+One particularly weird thing to get your head around with category theory terms, is they don't apply to the data type or the function in isolation. They apply to the function over a given data type, so its worth bearing this in mind when you read about category theory.
 
 ## What is a Monoid?
 The short description is:
@@ -26,7 +26,7 @@ let multiply x y = x * y
 
 {% endhighlight %}
 
-but these are not binary operations:
+but these are not binary operations because the output type is not of the same set as the inputs (unless the inputs are strings that is):
 
 {% highlight FSharp %}
 
@@ -65,7 +65,6 @@ So we've already seen the simplest and most obvious examples these are:
 ("A" + "B")  + "C" = "ABC"
 ("A" + "B")  + "C" + "" = "ABC" //Identity = ""
 {% endhighlight %}
-In this 
 
 All of these comply with our above rules. And are pretty straightforward.
 
