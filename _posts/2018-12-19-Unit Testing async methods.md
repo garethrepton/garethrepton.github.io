@@ -81,4 +81,4 @@ We can go one step further than this, and make the actual test async, because [X
 
 {% endhighlight %}
 
-Both of these tests pass, and I think I favour the latter as its a bit more natural when testing async methods, and quite frankly seeing .Result is enough to give anyone nightmares whos come across the myriad of deadlocks it can cause.
+Both of these tests pass, and I think I favour the latter as its a bit more natural when testing async methods, and quite frankly seeing `.Result` is enough to give anyone nightmares whos come across the myriad of deadlocks it can cause.
