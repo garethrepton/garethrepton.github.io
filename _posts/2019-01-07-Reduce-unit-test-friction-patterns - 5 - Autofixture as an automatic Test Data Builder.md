@@ -110,10 +110,11 @@ Using Autofixture allowed us to reduce the amount of setup code required for the
     }
 {% endhighlight %}
 
-This will generate 3 lions with pseudo random names and 3 rabbits with the same, the names will automatically get piped into each new objects constructor, and we effectively don't need to worry about setting the name field that we're not testing for. Theres slightly more code in the test than with a dedicated builder object, but we do away with maintaining a separate builder object completely, and we've reduced the original setup code by several lines. This makes autofixture incredibly powerful as a test object builder, and in many cases you can create your model objects without having to worry about the parameters you are not explicitly testing for (just like our name field in the Animal object in the above test).
+This will generate 3 lions and 3 rabbits, all with pseudo random names, the random names will automatically get piped into each objects constructor, and we don't need to worry about setting the name field that we're not interested in for this test. 
+There is slightly more code in the test than with a dedicated builder object, but we do away with maintaining a separate builder object completely, and we've reduced the original setup code by several lines. This makes autofixture incredibly powerful as a simple test object builder, and in many cases you can create your model objects without having to worry about the parameters you are not explicitly testing for (just like our name field in the Animal object in the above test).
 
 ## Where it applies
-Autofixture as a data builder is pretty useful for objects in tests where the value of the objects doesn't have to be specific, it just needs to be the correct type, or in cases where the test data objects have a bunch of constructor parameters that you don't really care about (i.e. the name in the above example). Autofixture also makes a good internal addition to a test databuilder, for when you want to have more automatic ways to generate certain objects, but still want to keep a more readable interface for the test itself. 
+Autofixture as a data builder is pretty useful for objects in tests where the value of the objects doesn't have to be specific, it just needs to be the correct type, or in cases where the test data objects have a bunch of constructor parameters that you don't really care about (i.e. the name in the above example). Autofixture also makes a good internal addition to a TestDataBuilder, for when you want to have more automatic ways to generate certain objects, but still want to keep a more readable interface for the test itself. 
 
 ## Where it probably shouldn't apply
 Autofixture is not as good in places where you need to have very specific values for test data objects. I generally find if I am trying to heavily customise the standard AutoFixture algorithms (i.e. start defining weird sequences of numbers, or a bunch of valid strings that can be set) the tests can actually become more complicated than they would do by just writing the test data construction code manually. Customizations can be standardised though, so in some cases, its well worth creating a customisation for a commonly used type and reusing that in many tests.
@@ -121,7 +122,7 @@ Autofixture is not as good in places where you need to have very specific values
 ## Summary
 AutoFixture functions as an incredibly powerful automatic test data builder, but its automatability is both a blessing and a curse, if used sparingly in simpler scenarios it can really improve your test code by reducing the amount of filler code you have to write, if used in more complex scenarios it can be more complicated than manually creating the data, and somewhat obfuscate the readability of the tests. 
 
-AutoFixture is well worth having in your toolkit, when it does apply, it really is a time saver.
+AutoFixture is well worth the effort of learning and having in your toolkit, when it does apply, it really is a time saver, just remember that it doesn't apply everywhere.
 
 
 
