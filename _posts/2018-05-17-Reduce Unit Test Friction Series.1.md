@@ -14,6 +14,7 @@ The current patterns and practices posts in this series are:
 2. [Pattern 2 - Abstract external dependencies](http://www.garethrepton.com/Reduce-Unit-Test-Friction-Pattern-2-Abstract-External-Dependencies/)
 3. [Pattern 3 - Never create time dependent tests](http://www.garethrepton.com/Reduce-unit-test-friction-patterns-3-Never-create-time-dependent-tests/)
 4. [Pattern 4 - Test Data Builder](http://www.garethrepton.com/Reduce-unit-test-friction-patterns-4-Test-Data-Builder/)
+5. [Pattern 5 - Autofixture as an automatic Test Data Builder](http://www.garethrepton.com/Reduce-unit-test-friction-patterns-5-Autofixture-as-an-automatic-Test-Data-Builder/)
 
 
 
