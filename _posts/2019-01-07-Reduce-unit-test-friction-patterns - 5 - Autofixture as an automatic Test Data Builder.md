@@ -5,7 +5,7 @@ tags: unittesting c# patterns autofixture
 ---
 
 ## The Problem
-This is largely the same problem as the [Test Data Builder](http://www.garethrepton.com/Reduce-unit-test-friction-patterns-4-Test-Data-Builder/), you have non trivial test data that needs repeated construction in many tests. I'm going to modify the example here though so it fits the use case of autofixture a little better, so we now have Animal Classes that we instantiate rather than just using a type on the Animal object:
+This is largely the same problem as the [Test Data Builder](http://www.garethrepton.com/Reduce-unit-test-friction-patterns-4-Test-Data-Builder/), you have non trivial test data that needs repeated construction in many tests. I'm going to modify the example here though so it fits the use case of autofixture a little better, so we now have Lion and Rabbit Animal classes that we instantiate rather than just using a type on the Animal object:
 
    {% highlight CSharp %}
  
@@ -60,13 +60,13 @@ Now.. the test data builder solution is to create a builder to construct your te
 We choose not to bother setting the name in the builder, and just have it create 3 of each type of animal, then the rest of the test continues as the previous test did. In this case, the builder requires less code in the test, and is more readable, but will take a lot more code to create the builder itself and unless you have a complex object model, the trade off isn't always worth it.
 
 ## The Autofixture Solution
-This is where a test object creation tool like [Autofixture](https://github.com/AutoFixture/AutoFixture) comes in extremely handy. Basically it is a generic test data builder, so you can tell it to create many strings, give it the amount you want it to create, and it will use internal (customisable) algorithms to create that number pseudo random strings e.g.
+This is where a test object creation tool like [Autofixture](https://github.com/AutoFixture/AutoFixture) comes in extremely handy. Basically it is a generic test data builder, so you can tell it to create many objects of a given type, give it the amount you want it to create, and it will use internal (customisable) algorithms to create that number pseudo random objects, so for strings an example would be:
 
 {% highlight CSharp %}
 var strings = new Fixture().CreateMany<string>(20);
 {% endhighlight %}
 
-This will create an enumerable of 20 strings, each populated according to its current configuration. It will also work with objects too:
+This will create an enumerable of 20 strings, each populated according to its current configuration. It will also work with more complicated objects too:
 
 {% highlight CSharp %}
 public class Person
@@ -84,9 +84,9 @@ public class Person
 var people = new Fixture().CreateMany<Person>(5);
 {% endhighlight %}
 
-AutoFixture will automatically generate 5 people objects in this code. The names will be pseudo random sequences of characters, and the birth dates won't make sense, but this can still be useful data in a test scenario.
+AutoFixture will automatically generate 5 Person objects in this code. The names will be pseudo random sequences of characters, and the birth dates won't make sense, but this can still be useful data in a test scenario.
 
-Using Autofixture allows us to reduce the amount of setup code required for this particular test data. And it can be extended too, so you can create much larger test models usually quite easily, to take our ZooBuilder example above, the equivalent with AutoFixture would be:
+Using Autofixture allowed us to reduce the amount of setup code required for the string nad Person examples above, lets see how this looks with the Zoo example:
 
 {% highlight CSharp %}
     [Fact]
