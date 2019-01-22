@@ -14,13 +14,13 @@ To do this, in the main Visual Studio menu go to:
 
 On the installer dialog that appears select the "Individual Components" tab and find F# desktop language support:
 
-[installer](/images/FSharpInstall/FSharpInstaller.png)
+![installer](/images/FSharpInstall/FSharpInstaller.png)
 
 Then install that as a new feature.
 
 Once installed, back in visual studio you should see:
 
-[projects](/images/FSharpInstall/FSharpProjects.png)
+![projects](/images/FSharpInstall/FSharpProjects.png)
 
 Console, and Library will allow the selection of a standard .Net Framework project. This is ideal for integrating into existing code.
 
