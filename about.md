@@ -4,4 +4,4 @@ title: About
 permalink: /about/
 ---
 
-Just some stuff I wrote down.
+Mostly program in .Net, but I'm passionate about design and all things software.
