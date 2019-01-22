@@ -20,7 +20,7 @@ Once installed, back in visual studio you should see:
 
 ![projects]({{ "/images/FSharpInstall/FSharpProjects.png" | absolute_url }})
 
-Console, and Library will allow the selection of a standard .Net Framework project. This is ideal for integrating into existing code.
+Console Application, and Library will allow the selection of a standard .Net Framework project. This is ideal for integrating into existing code.
 
 
 
