@@ -4,10 +4,8 @@ title: The solution to FSharp missing .Net Framework Projects in Visual Studio
 tags: f# visualstudio c# dotnet projects
 ---
 
-## Intro
-So I went to create a .Net framework F# console app as part of a larger existing .Net Framework solution, and found that the project dialog didn't give me that option for a full .Net Framework project. I thought this was a bit weird, so did some googling and found that you have to install the **F# Desktop Language Support pack**.
+I went to create a .Net framework F# console app as part of a larger existing .Net Framework solution, and found that the project dialog didn't give me that option for a full .Net Framework project. I thought this was a bit weird, so did some googling and found that you have to install the **F# Desktop Language Support pack**.
 
-## The solution
 To do this, in the main Visual Studio menu go to:
 
  > Tools > Get Tools and Features.
