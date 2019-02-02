@@ -51,7 +51,7 @@ Console.WriteLine($"{test.Value}");
 This prints the value 1, because thats whats been assigned to the nullable int. So how does this relate to F#?
 
 ## On to F# options
-Well, functional languages don't tend to work with nulls, instead they deal with something called a `maybe` or in F# (and OCAML) world `option`. In F# you declare something as an ption type by prefixing it with the words `Some` for a value or `None` for no value. For example:
+Well, functional languages don't tend to work with nulls, instead they deal with something called a `maybe` or in F# (and OCAML) world `option`. In F# you declare something as an option type by prefixing it with the words `Some` for a value or `None` for no value. For example:
 
 {% highlight FSharp %}
 let x = Some 41;
@@ -136,7 +136,7 @@ var items = new[] {1, 2, 3, 4, 5, 6};
 items.Select(x => x.ToString());
 {% endhighlight %}
 
-The select function, is equivalent to F# map, it takes the `items` and applies a function `x => x.ToString()` and applies it to each item. The important thing to understand here is that `x => x.ToString()` is just a function we define and are passing to the `Select` function, the `Select` function itself will just consist of the functionality to apply the passed function to the items array. So `Select` is a higher order function, it doesn't do much by itself, but it facilitates doing many different things to our items collection just by taking that function as an argument.
+The select function, is equivalent to F# map, it takes the `items` and applies a function `x => x.ToString()` to each item. The important thing to understand here is that `x => x.ToString()` is just a function we define and are passing to the `Select` function, the `Select` function itself will just consist of the functionality to apply the passed function to the items array. So `Select` is a higher order function, it doesn't do much by itself, but it facilitates doing many different things to our items collection just by taking that function as an argument.
 
 Back to our F# then, lets assume we want to multiply our optional numbers as well. We know that for an addition our Identity (i.e. the empty case if you remember about [monoids](http://www.garethrepton.com/Category-Theory-Monoids/)) 0, as any `value + 0` will just return the original value. For multiplication, our Identity is 1 because 1 multiplied by any value just returns the original value too. So we need to pass in our identity, we also need to pass in the function for the operation (either + or -):
 
