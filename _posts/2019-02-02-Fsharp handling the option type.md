@@ -28,7 +28,11 @@ This piece of code will do absolutely nothing, because it declares the `Nullable
 int? test = null;
 Console.WriteLine($"{test.Value}");
 {% endhighlight %}
-> *System.InvalidOperationException: 'Nullable object must have a value.'*
+<div class="consolenosize">
+  <div class="consolebody">
+    <p class="consoletext">System.InvalidOperationException: 'Nullable object must have a value.'</p>
+  </div>
+</div>
 
 Of course, this code will throw an exception, which is one step further than the first code that did nothing. Finally, just for completeness:
 
