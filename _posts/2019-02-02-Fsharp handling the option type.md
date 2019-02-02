@@ -218,8 +218,8 @@ defaultArg (Some 1) 0 |> string |> printfn "%A"
 
 <div class="consolenosize">
   <div class="consolebody">
-    <p>"0"</p>
-    <p>"1"</p>
+    <p class="consoletext">"0"</p>
+    <p class="consoletext">"1"</p>
   </div>
 </div>
 

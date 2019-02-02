@@ -53,13 +53,6 @@ table {
 }
 
 
-.something {
-	font-family: 'Fira Mono';
-    /* width: 700px; */
-    /* height: 450px; */
-    box-sizing: border-box;
-    margin: auto;
-  }
 
 .consolenosize {
 	font-family: 'Fira Mono';
@@ -89,6 +82,11 @@ table {
     background-color: #000;
     color: white;
   }
+
+  .consolenosize .consoletext {
+	margin: 2px
+  }
+  
   
   .consolenosize .consolebody p {
 	line-height: 1.5rem;
