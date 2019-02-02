@@ -174,7 +174,7 @@ multiply x 2
 
 > *Our add and multiply function are also [monoids](http://www.garethrepton.com/Category-Theory-Monoids/)*
 
-This is quite a neat solution, and it means we can reuse our option logic for different types too if we want. The `optionOperation` can really run on any type now, with any identity and any function to apply. Lets append a function that does that:
+This is quite a neat solution, and it means we can reuse our option logic for different types too if we want. The `optionOperation` can really run on any type now, with an identity and a function to apply. Lets append a function that concatenates two strings:
 
 {% highlight FSharp %}
 let concat = optionOperation String.Empty (fun x y -> x + y)
