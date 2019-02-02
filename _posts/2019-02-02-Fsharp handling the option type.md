@@ -11,25 +11,25 @@ The steady march towards learning F# continues. This time lets look at the optio
 The closest relative to the option type in C# world is the `Nullable<T>` type. Which allows you to declare something thats not assignable to Null (e.g. an `int`) as nullable, and has properties that declare whether the variable is assigned a value or not, and gives you access to the value. For example:
 
 {% highlight CSharp %}
-	int? test = null;
-	if (test.HasValue)
-		Console.WriteLine($"{test.Value}");
+int? test = null;
+if (test.HasValue)
+    Console.WriteLine($"{test.Value}");
 {% endhighlight %}
 > Nothing is printed
 
 This piece of code will do absolutely nothing, because it declares the `Nullable<int>` "test" with the shorthand `?` operator. It then proceeds not to assign anything to test, and to check its `HasValue` property to see if its `Null`. If it wasn't `Null` it would then print its value to the screen. Now we could of course not do this null check like so:
 
 {% highlight CSharp %}
-    int? test = null;
-    Console.WriteLine($"{test.Value}");
+int? test = null;
+Console.WriteLine($"{test.Value}");
 {% endhighlight %}
 > *System.InvalidOperationException: 'Nullable object must have a value.'*
 
 Of course, this code will throw an exception, which is one step further than the first code that did nothing. Finally, just for completeness:
 
 {% highlight CSharp %}
-	int? test = 1;
-	Console.WriteLine($"{test.Value}");
+int? test = 1;
+Console.WriteLine($"{test.Value}");
 {% endhighlight %}
 > 1
 
@@ -39,8 +39,8 @@ This prints the value 1, because thats whats been assigned to the nullable int. 
 Well, functional languages don't tend to work with `Null`s, instead they deal with something called a `maybe` or in F# (and OCAML) world `option`. In F# you declare something as an option type by prefixing it with the words `Some` for a value or `None` for no value. For example:
 
 {% highlight FSharp %}
-    let x = Some 41;
-    x |> string |> fun x -> printfn "%s" x
+let x = Some 41;
+x |> string |> fun x -> printfn "%s" x
 {% endhighlight %}
 > Some(41)
 
@@ -49,8 +49,8 @@ What this piece of code is effectively saying is that x may contain an integer v
 Just to show the `None` case:
 
 {% highlight FSharp %}
-    let x = None;
-    x |> string |> fun x -> printfn "%s" x
+let x = None;
+x |> string |> fun x -> printfn "%s" x
 {% endhighlight %}
 > Prints nothing
 
@@ -79,14 +79,14 @@ You could work away using these, writing if statements just like in imperative l
 One of the really powerful features in F# is pattern matching. Its pretty useful for handling `option`s, its sort of a really concise switch statement. We can change our add function from above that failed to compile to correctly handle our option:
 
 {% highlight FSharp %}
-    let x = Some 41;
+let x = Some 41;
 
-    let addOption x y : int  = match x with
-        | None -> 0 + y
-        | Some x -> x + y
+let addOption x y : int  = match x with
+    | None -> 0 + y
+    | Some x -> x + y
 
-    let y = addOption x 9;
-    y |> string |> fun x -> printfn "%s" x
+let y = addOption x 9;
+y |> string |> fun x -> printfn "%s" x
 {% endhighlight %}
 > 50
 
@@ -100,8 +100,8 @@ Of course we can also refactor this code into a higher order function, and make 
 Higher order functions are functions that take another function and operate over that function and associated data. For C# developers probably the easiest example is a Lambda `Select` statement, e.g.
 
 {% highlight CSharp %}
-    var items = new[] {1, 2, 3, 4, 5, 6};
-    items.Select(x => x.ToString());
+var items = new[] {1, 2, 3, 4, 5, 6};
+items.Select(x => x.ToString());
 {% endhighlight %}
 
 The select function, is equivalent to F# map, it takes the `items` and applies a function `x => x.ToString()` and applies it to each item. The important thing to understand here is that `x => x.ToString()` is just a function we define and are passing to the `Select` function, the `Select` function itself will just consist of the functionality to apply the passed function to the items array. So `Select` is a higher order function, it doesn't do much by itself, but it facilitates doing many different things to our items collection just by taking that function as an argument.
@@ -109,39 +109,40 @@ The select function, is equivalent to F# map, it takes the `items` and applies a
 Back to our F# then, lets assume we want to multiply our optional numbers as well. We know that for an addition our Identity (i.e. the empty case if you remember about [monoids](http://www.garethrepton.com/Category-Theory-Monoids/)) 0, as any `value + 0` will just return the original value. For multiplication, our Identity is 1 because 1 multiplied by any value just returns the original value too. So we need to pass in our identity, we also need to pass in the function for the operation (either + or -):
 
 {% highlight FSharp %}
-    let x = Some 41;
-    
-    //1
-    let optionOperation identity func x y  = match x with
-        | None -> func identity y
-        | Some x -> func x y
+let x = Some 41;
 
-    //2 
-    let add = optionOperation 0 (+)
-    let multiply = optionOperation 1 (*)
-    
-    //3
-    add x 9
-        |> string |> printfn "%A"
-    
-    multiply x 2 
-        |> string |> printfn "%A"
+//1
+let optionOperation identity func x y  = match x with
+    | None -> func identity y
+    | Some x -> func x y
+
+//2 
+let add = optionOperation 0 (+)
+let multiply = optionOperation 1 (*)
+
+//3
+add x 9
+    |> string |> printfn "%A"
+
+multiply x 2 
+    |> string |> printfn "%A"
 {% endhighlight %}
 > "50"
 > "82"
 
-> *Our add and multiply function are [monoids](http://www.garethrepton.com/Category-Theory-Monoids/)*
 
 1. So in this code we've renamed `addOption` to `optionOperation` and added two preceeding arguments, `identity` and `func`. `identity` takes our default value for an operation for when our value is null. `func` is our operation. We then use pretty much the same code as `addOption`, but we replace the + with func before the two arguments `func x y` and in our `None` case we pass the identity.
 2. These two lines are where the magic happens, we partially apply our `optionOperation` function for add and multiply. For `add` we pass 0 as our Identity and we wrap the plus infix operator in brackets `(+)` which turns it into a normal function that can be passed as an argument. We do exactly the same for the multiply, but with 1 and `(*)`.
 3. Finally in 3 we call our `add` and `multiply` functions (which are now functions in their own right), and pipe them through to be printed.
 
+> *Our add and multiply function are also [monoids](http://www.garethrepton.com/Category-Theory-Monoids/)*
+
 This is quite a neat solution, and it means we can reuse our option logic for different types too if we want. The `optionOperation` can really run on any type now, with any identity and any function to apply. Lets append a function that does that:
 
 {% highlight FSharp %}
-    let concat = optionOperation String.Empty (fun x y -> x + y)
-    let z = Some "I have been "
-    concat z "concatenated" |> string |> printfn "%A"
+let concat = optionOperation String.Empty (fun x y -> x + y)
+let z = Some "I have been "
+concat z "concatenated" |> string |> printfn "%A"
 {% endhighlight %}
 > "I have been concatenated"
 
@@ -150,26 +151,26 @@ An important major distinction between F# and C# is that nothing should really b
 
 For example, heres a Tuple:
 {% highlight FSharp %}
-    let x = Some (1,2,3, "Fred")
-    x |> string |> printf "%A"
+let x = Some (1,2,3, "Fred")
+x |> string |> printf "%A"
 {% endhighlight %}
 > "Some((1, 2, 3, Fred))"
 
 And we get the printed "Some" value as expected. And if you wanted to use the value within the tuple, you can pattern match just like with standard types. e.g. 
 
 {% highlight FSharp %}
-    let x = Some (1,2,3, "Fred")
-    x |> string |> printfn "%A"
-    
-    let isFred x = match x with
-        | None -> false
-        | Some (_,_,_,d : string) -> d = "Fred"
+let x = Some (1,2,3, "Fred")
+x |> string |> printfn "%A"
 
-    let y = isFred x |> string
-    y |> printfn "%A"
+let isFred x = match x with
+    | None -> false
+    | Some (_,_,_,d : string) -> d = "Fred"
 
-    let z = isFred None |> string
-    z |> printfn "%A"
+let y = isFred x |> string
+y |> printfn "%A"
+
+let z = isFred None |> string
+z |> printfn "%A"
 {% endhighlight %}
 > "Some((1, 2, 3, Fred))"
 > "True"
@@ -183,10 +184,10 @@ Note: Here we use _ in our pattern match for the `tuple` which denotes that we d
 ### `Option.map` 
 *applies a function to the option where the value exists:*
 {% highlight FSharp %}
-    let x : int option = Some 1
-    let x1 : int option = None
-    x |> Option.map(fun x -> x.ToString()) |> printfn "%A"
-    x1 |> Option.map(fun x -> x.ToString()) |> printfn "%A"
+let x : int option = Some 1
+let x1 : int option = None
+x |> Option.map(fun x -> x.ToString()) |> printfn "%A"
+x1 |> Option.map(fun x -> x.ToString()) |> printfn "%A"
 {% endhighlight %}
 > Some "1"
 > <null>
@@ -196,10 +197,10 @@ Interestingly this returns a null. This is not ideal, in this case I'd rather us
 ### `Option.get` 
 *returns the value stored in the option.*
 {% highlight FSharp %}
-    let x : int option = Some 1
-    let x1 : int option = None
-    x |> Option.get |> printfn "%A"
-    x1 |> Option.get |> printfn "%A"
+let x : int option = Some 1
+let x1 : int option = None
+x |> Option.get |> printfn "%A"
+x1 |> Option.get |> printfn "%A"
 {% endhighlight %}
 > 1
 ![optiongetnull]({{ "/images/FSharpOptions/optiongetnull.png" | absolute_url }})
@@ -210,8 +211,8 @@ This prints 1 then throws an exception, presumably because its just calling x.Va
 Another particular function of interest is `defaultArg`, which gets you the value or default for the option you pass.
 
 {% highlight FSharp %}
-    defaultArg None 0 |> string |> printfn "%A"
-    defaultArg (Some 1) 0 |> string |> printfn "%A"
+defaultArg None 0 |> string |> printfn "%A"
+defaultArg (Some 1) 0 |> string |> printfn "%A"
 {% endhighlight %}
 > "0"
 > "1"
