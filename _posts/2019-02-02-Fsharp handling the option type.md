@@ -73,7 +73,7 @@ These work in much the same way as `HasValue` and `Value`, and calling the `Valu
 
 ![nullerror]({{ "/images/FSharpOptions/NullError.png" | absolute_url }})
 
-You could work away using these, writing if statements just like in imperative languages, but because this is the functional world, we don't have to do that. And its frowned upon as you can quite easily cause exceptions and end up with null values in your code, instead we can use some of the built in language features to assist us.
+You could work away using these, writing if statements just like in imperative languages, but because this is the functional world, we don't have to do that, instead we can use some of the built in language features to assist us to work in a way where exceptions can't really happen, and `None` values are checked at compile time.
 
 ## In steps pattern matching
 One of the really powerful features in F# is pattern matching. Its pretty useful for handling `option`s, its sort of a really concise switch statement. We can change our add function from above that failed to compile to correctly handle our option:
