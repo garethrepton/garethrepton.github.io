@@ -55,7 +55,6 @@ table {
 
 
 .consolenosize {
-	font-family: 'Fira Mono';
     /* width: 700px; */
     /* height: 450px; */
     box-sizing: border-box;
@@ -80,14 +79,13 @@ table {
     height: calc(100% - 40px);
     overflow: scroll;
     background-color: #000;
-    color: white;
+    color: #E8E8E8;
   }
 
   .consolenosize .consoletext {
 	margin: 2px
   }
-  
-  
+    
   .consolenosize .consolebody p {
 	line-height: 1.5rem;
   }
