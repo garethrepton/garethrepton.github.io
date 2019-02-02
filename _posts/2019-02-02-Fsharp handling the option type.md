@@ -215,9 +215,15 @@ Another particular function of interest is `defaultArg`, which gets you the valu
 defaultArg None 0 |> string |> printfn "%A"
 defaultArg (Some 1) 0 |> string |> printfn "%A"
 {% endhighlight %}
-<div class="consolebody">
-"0"
-"1"
+
+<div class="console">
+  <header>
+    <p>Output</p>
+  </header>
+  <div class="consolebody">
+    <p>"0"</p>
+    <p>"1"</p>
+  </div>
 </div>
 
 There are a whole bunch of other method types available, I won't list them all, but if you use them, its probably worth working out their behaviour for the `None` case. Its more functional to avoid nulls and exceptions, and with the tools at your disposal to do this, theres not really a reason not to.
