@@ -20,8 +20,8 @@ The closest relative to the option type in C# world is the `Nullable<T>` type. W
 This piece of code will do absolutely nothing, because it declares the `Nullable<int>` "test" with the shorthand `?` operator. It then proceeds not to assign anything to test, and to check its `HasValue` property to see if its `Null`. If it wasn't `Null` it would then print its value to the screen. Now we could of course not do this null check like so:
 
 {% highlight CSharp %}
-	int? test = null;
-	Console.WriteLine($"{test.Value}");
+    int? test = null;
+    Console.WriteLine($"{test.Value}");
 {% endhighlight %}
 > *System.InvalidOperationException: 'Nullable object must have a value.'*
 
@@ -39,7 +39,7 @@ This prints the value 1, because thats whats been assigned to the nullable int. 
 Well, functional languages don't tend to work with `Null`s, instead they deal with something called a `maybe` or in F# (and OCAML) world `option`. In F# you declare something as an option type by prefixing it with the words `Some` for a value or `None` for no value. For example:
 
 {% highlight FSharp %}
-  	let x = Some 41;
+    let x = Some 41;
     x |> string |> fun x -> printfn "%s" x
 {% endhighlight %}
 > Some(41)
@@ -49,7 +49,7 @@ What this piece of code is effectively saying is that x may contain an integer v
 Just to show the `None` case:
 
 {% highlight FSharp %}
-  	let x = None;
+    let x = None;
     x |> string |> fun x -> printfn "%s" x
 {% endhighlight %}
 > Prints nothing
