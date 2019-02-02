@@ -197,7 +197,11 @@ For example, heres a Tuple:
 let x = Some (1,2,3, "Fred")
 x |> string |> printf "%A"
 {% endhighlight %}
-> "Some((1, 2, 3, Fred))"
+<div class="consolenosize">
+  <div class="consolebody">
+    <p class="consoletext">"Some((1, 2, 3, Fred))"</p>
+  </div>
+</div>
 
 And we get the printed "Some" value as expected. And if you wanted to use the value within the tuple, you can pattern match just like with standard types. e.g. 
 
@@ -284,7 +288,7 @@ defaultArg (Some 1) 0 |> string |> printfn "%A"
 There are a whole bunch of other method types available, I won't list them all, but if you use them, its probably worth working out their behaviour for the `None` case. Its more functional to avoid nulls and exceptions, and with the tools at your disposal to do this, theres not really a reason not to.
 
 ## Summary
-After all this, they're a lot like nullables really aren't they. F# Just provides much better tools to handle them, as long as you avoid the exception causing/null returning functions.
+After all this, they're a lot like nullables really aren't they. F# Just provides much better tools to handle them, as long as you avoid the exception causing/null returning functions. 
 
 
 
