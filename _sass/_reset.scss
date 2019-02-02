@@ -61,7 +61,7 @@ table {
     margin: auto;
   }
 
-.console {
+.consolenosize {
 	font-family: 'Fira Mono';
     /* width: 700px; */
     /* height: 450px; */
@@ -69,7 +69,7 @@ table {
     margin: auto;
   }
   
-  .console header {
+  .consolenosize header {
 	border-top-left-radius: 15px;
 	border-top-right-radius: 15px;
 	background-color: #555;
@@ -79,7 +79,7 @@ table {
 	color: #DDD;
   }
   
-  .console .consolebody {
+  .consolenosize .consolebody {
 	border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
     box-sizing: border-box;
@@ -90,6 +90,6 @@ table {
     color: white;
   }
   
-  .console .consolebody p {
+  .consolenosize .consolebody p {
 	line-height: 1.5rem;
   }

@@ -216,7 +216,7 @@ defaultArg None 0 |> string |> printfn "%A"
 defaultArg (Some 1) 0 |> string |> printfn "%A"
 {% endhighlight %}
 
-<div class="console">
+<div class="consolenosize">
   <div class="consolebody">
     <p>"0"</p>
     <p>"1"</p>
