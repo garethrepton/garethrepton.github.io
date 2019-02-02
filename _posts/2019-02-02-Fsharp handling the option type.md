@@ -36,7 +36,7 @@ Console.WriteLine($"{test.Value}");
 This prints the value 1, because thats whats been assigned to the nullable int. So how does this relate to F#?
 
 ## On to F# options
-Well, functional languages don't tend to work with `Null`s, instead they deal with something called a `maybe` or in F# (and OCAML) world `option`. In F# you declare something as an option type by prefixing it with the words `Some` for a value or `None` for no value. For example:
+Well, functional languages don't tend to work with nulls, instead they deal with something called a `maybe` or in F# (and OCAML) world `option`. In F# you declare something as an ption type by prefixing it with the words `Some` for a value or `None` for no value. For example:
 
 {% highlight FSharp %}
 let x = Some 41;
@@ -76,7 +76,7 @@ These work in much the same way as `HasValue` and `Value`, and calling the `Valu
 You could work away using these, writing if statements just like in imperative languages, but because this is the functional world, we don't have to do that, instead we can use some of the built in language features to assist us to work in a way where exceptions can't really happen, and `None` values are checked at compile time.
 
 ## In steps pattern matching
-One of the really powerful features in F# is pattern matching. Its pretty useful for handling `option`s, its sort of a really concise switch statement. We can change our add function from above that failed to compile to correctly handle our option:
+One of the really powerful features in F# is pattern matching. Its pretty useful for handling `option`, its sort of a really concise switch statement. We can change our add function from above that failed to compile to correctly handle our option:
 
 {% highlight FSharp %}
 let x = Some 41;
@@ -179,7 +179,7 @@ z |> printfn "%A"
 Note: Here we use _ in our pattern match for the `tuple` which denotes that we don't care about that particular value.
 
 ## Built in helper functions
-`option`s also have their own set of helper functions in the [Option](https://msdn.microsoft.com/en-us/visualfsharpdocs/conceptual/core.option-module-%5Bfsharp%5D) module. These assist in the processing of option types much like the standard list operations a couple of examples are: 
+`option` also has its own set of helper functions in the [Option](https://msdn.microsoft.com/en-us/visualfsharpdocs/conceptual/core.option-module-%5Bfsharp%5D) module. These assist in the processing of option types much like the standard list operations a couple of examples are: 
 
 ### `Option.map` 
 *applies a function to the option where the value exists:*
@@ -190,6 +190,7 @@ x |> Option.map(fun x -> x.ToString()) |> printfn "%A"
 x1 |> Option.map(fun x -> x.ToString()) |> printfn "%A"
 {% endhighlight %}
 > Some "1"
+
 > <null>
 
 Interestingly this returns a null. This is not ideal, in this case I'd rather use a specific pattern match.
@@ -215,6 +216,7 @@ defaultArg None 0 |> string |> printfn "%A"
 defaultArg (Some 1) 0 |> string |> printfn "%A"
 {% endhighlight %}
 > "0"
+
 > "1"
 
 There are a whole bunch of other method types available, I won't list them all, but if you use them, its probably worth working out their behaviour for the `None` case. Its more functional to avoid nulls and exceptions, and with the tools at your disposal to do this, theres not really a reason not to.
