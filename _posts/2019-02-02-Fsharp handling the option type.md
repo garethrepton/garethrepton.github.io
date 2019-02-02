@@ -237,7 +237,7 @@ x1 |> Option.map(fun x -> x.ToString()) |> printfn "%A"
 <div class="consolenosize">
   <div class="consolebody">
     <p class="consoletext">Some "1"</p>
-    <p class="consoletext"><null></p>
+    <p class="consoletext">null</p>
   </div>
 </div>
 
