@@ -54,7 +54,10 @@ table {
 
 .console {
 	font-family: 'Fira Mono';
-	box-sizing: border-box;
+    /* width: 700px; */
+    /* height: 450px; */
+    box-sizing: border-box;
+    margin: auto;
   }
   
   .console header {
@@ -69,13 +72,13 @@ table {
   
   .console .consolebody {
 	border-bottom-left-radius: 15px;
-	border-bottom-right-radius: 15px;
-	box-sizing: border-box;
-	padding: 20px;
-	height: calc(100% - 40px);
-	overflow: scroll;
-	background-color: #000;
-	color: #ffffff;
+    border-bottom-right-radius: 15px;
+    box-sizing: border-box;
+    padding: 20px;
+    height: calc(100% - 40px);
+    overflow: scroll;
+    background-color: #000;
+    color: white;
   }
   
   .console .consolebody p {

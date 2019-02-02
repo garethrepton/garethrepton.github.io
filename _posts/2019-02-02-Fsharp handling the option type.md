@@ -217,8 +217,6 @@ defaultArg (Some 1) 0 |> string |> printfn "%A"
 {% endhighlight %}
 
 <div class="console">
-  <header>
-  </header>
   <div class="consolebody">
     <p>"0"</p>
     <p>"1"</p>
