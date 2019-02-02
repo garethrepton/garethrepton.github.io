@@ -15,7 +15,12 @@ int? test = null;
 if (test.HasValue)
     Console.WriteLine($"{test.Value}");
 {% endhighlight %}
-> Nothing is printed
+
+<div class="consolenosize">
+  <div class="consolebody">
+    <p class="consoletext">*Prints nothing*</p>
+  </div>
+</div>
 
 This piece of code will do absolutely nothing, because it declares the `Nullable<int>` "test" with the shorthand `?` operator. It then proceeds not to assign anything to test, and to check its `HasValue` property to see if its `Null`. If it wasn't `Null` it would then print its value to the screen. Now we could of course not do this null check like so:
 
@@ -31,7 +36,13 @@ Of course, this code will throw an exception, which is one step further than the
 int? test = 1;
 Console.WriteLine($"{test.Value}");
 {% endhighlight %}
-> 1
+
+<div class="consolenosize">
+  <div class="consolebody">
+    <p class="consoletext">1</p>
+  </div>
+</div>
+
 
 This prints the value 1, because thats whats been assigned to the nullable int. So how does this relate to F#?
 
@@ -42,7 +53,12 @@ Well, functional languages don't tend to work with nulls, instead they deal with
 let x = Some 41;
 x |> string |> fun x -> printfn "%s" x
 {% endhighlight %}
-> Some(41)
+
+<div class="consolenosize">
+  <div class="consolebody">
+    <p class="consoletext">Some(41)</p>
+  </div>
+</div>
 
 What this piece of code is effectively saying is that x may contain an integer value of 41, BUT consumers of this variable need to make sure they handle the case where it doesn't exist. Fortunately for our example case above, theres an automatic conversion to a string for the option type and we got "Some(41)" printed to the console. 
 
@@ -52,7 +68,13 @@ Just to show the `None` case:
 let x = None;
 x |> string |> fun x -> printfn "%s" x
 {% endhighlight %}
-> Prints nothing
+
+<div class="consolenosize">
+  <div class="consolebody">
+    <p class="consoletext">*Prints nothing*</p>
+  </div>
+</div>
+
 
 We've assigned None, and we got nothing printed, as you'd expect as long as the string conversions works correctly.
 
@@ -88,7 +110,13 @@ let addOption x y : int  = match x with
 let y = addOption x 9;
 y |> string |> fun x -> printfn "%s" x
 {% endhighlight %}
-> 50
+
+<div class="consolenosize">
+  <div class="consolebody">
+    <p class="consoletext">50</p>
+  </div>
+</div>
+
 
 This time, we've handled that option type by creating a function called `addOption`, all that function does is decide how to handle the logic of adding the two numbers together, either with a default value for the `None` case, or with the actual value. The pattern matching syntax looks a little weird at first, but you get used to it, its basically `match <variable> with |` where `|` is the separator for each case. Within the first case we match x with `None`, this is our condition where x isn't set, so we declare it as `0 + y`, which has no effect. In our second case, we say `Some x` which checks that x has a value, and then we use x as a standard integer value in the corresponding function. 
 
@@ -127,8 +155,13 @@ add x 9
 multiply x 2 
     |> string |> printfn "%A"
 {% endhighlight %}
-> "50"
-> "82"
+
+<div class="consolenosize">
+  <div class="consolebody">
+    <p class="consoletext">"50"</p>
+    <p class="consoletext">"82"</p>
+  </div>
+</div>
 
 
 1. So in this code we've renamed `addOption` to `optionOperation` and added two preceeding arguments, `identity` and `func`. `identity` takes our default value for an operation for when our value is null. `func` is our operation. We then use pretty much the same code as `addOption`, but we replace the + with func before the two arguments `func x y` and in our `None` case we pass the identity.
@@ -144,7 +177,13 @@ let concat = optionOperation String.Empty (fun x y -> x + y)
 let z = Some "I have been "
 concat z "concatenated" |> string |> printfn "%A"
 {% endhighlight %}
-> "I have been concatenated"
+
+<div class="consolenosize">
+  <div class="consolebody">
+    <p class="consoletext">"I have been concatenated"</p>
+  </div>
+</div>
+
 
 ## Null should not be used, if its empty, its an option
 An important major distinction between F# and C# is that nothing should really be assigned `NULL` . Instead `option` is used, for everything, tuples, types you name it, if it might not exist it is an option, and the compiler mostly forces you to handle the empty case, although as discussed not if you revert to the functions on option itself. In contrast in C# only types that can't inherently be null can be dealt with explicitly using the `Nullable<T>` type. Although C# 8 is about to add an option to change that.
@@ -172,9 +211,14 @@ y |> printfn "%A"
 let z = isFred None |> string
 z |> printfn "%A"
 {% endhighlight %}
-> "Some((1, 2, 3, Fred))"
-> "True"
-> "False"
+
+<div class="consolenosize">
+  <div class="consolebody">
+    <p class="consoletext">"Some((1, 2, 3, Fred))"</p>
+    <p class="consoletext">"True"</p>
+    <p class="consoletext">"False"</p>
+  </div>
+</div>
 
 Note: Here we use _ in our pattern match for the `tuple` which denotes that we don't care about that particular value.
 
@@ -189,9 +233,13 @@ let x1 : int option = None
 x |> Option.map(fun x -> x.ToString()) |> printfn "%A"
 x1 |> Option.map(fun x -> x.ToString()) |> printfn "%A"
 {% endhighlight %}
-> Some "1"
 
-> <null>
+<div class="consolenosize">
+  <div class="consolebody">
+    <p class="consoletext">Some "1"</p>
+    <p class="consoletext"><null></p>
+  </div>
+</div>
 
 Interestingly this returns a null. This is not ideal, in this case I'd rather use a specific pattern match.
 
@@ -203,7 +251,13 @@ let x1 : int option = None
 x |> Option.get |> printfn "%A"
 x1 |> Option.get |> printfn "%A"
 {% endhighlight %}
-> 1
+
+<div class="consolenosize">
+  <div class="consolebody">
+    <p class="consoletext">1</p>
+  </div>
+</div>
+
 ![optiongetnull]({{ "/images/FSharpOptions/optiongetnull.png" | absolute_url }})
 
 This prints 1 then throws an exception, presumably because its just calling x.Value inside that method, similarly to the map, this is not really ideal behaviour and I think I'd rather use a specific pattern match.
