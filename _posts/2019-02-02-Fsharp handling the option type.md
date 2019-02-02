@@ -190,7 +190,7 @@ concat z "concatenated" |> string |> printfn "%A"
 
 
 ## Null should not be used, if its empty, its an option
-An important major distinction between F# and C# is that nothing should really be assigned `NULL` . Instead `option` is used, for everything, tuples, types you name it, if it might not exist it is an option, and the compiler mostly forces you to handle the empty case, although as discussed not if you revert to the functions on option itself. In contrast in C# only types that can't inherently be null can be dealt with explicitly using the `Nullable<T>` type. Although C# 8 is about to add an option to change that.
+An important major distinction between F# and C# is that nothing should really be assigned `NULL` . Instead `option` is used, for everything, if it might not exist it is an option, and the compiler mostly forces you to handle the empty case, although as discussed not if you revert to the functions on option itself. In contrast in C# only types that can't inherently be null can be dealt with explicitly using the `Nullable<T>` type. Although C# 8 is about to add an option to change that.
 
 For example, heres a Tuple:
 {% highlight FSharp %}
