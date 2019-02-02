@@ -218,7 +218,6 @@ defaultArg (Some 1) 0 |> string |> printfn "%A"
 
 <div class="console">
   <header>
-    <p>Output</p>
   </header>
   <div class="consolebody">
     <p>"0"</p>
