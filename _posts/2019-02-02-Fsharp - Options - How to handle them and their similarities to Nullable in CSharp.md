@@ -1,6 +1,6 @@
 ---
 layout: post
-title: FSharp - Options - How to handle them and their similarities to Nullable in CSharp
+title: F# handling the option type
 tags: design fsharp option csharp maybe nullable software-engineering process .Net FSharp FunctionalProgramming
 ---
 
