@@ -249,7 +249,20 @@ x1 |> Option.map(fun x -> x.ToString()) |> printfn "%A"
   </div>
 </div>
 
-Interestingly this returns a null. This is not ideal, in this case I'd rather use a specific pattern match.
+Interestingly this prints <null>, but its actually not null its an option type with a value of `None` (thanks to reddit user mongreldog for pointing this out)as the following example shows:
+{% highlight FSharp %}
+let x : int option = Some 1
+let x1 : int option = None
+x |> Option.map(fun x -> x.ToString()) |> (fun x -> x.IsNone) |> printfn "%A"
+x1 |> Option.map(fun x -> x) |> (fun x -> x.IsNone)|> printfn "%A"
+{% endhighlight %}
+
+<div class="consolenosize">
+  <div class="consolebody">
+    <p class="consoletext">false</p>
+    <p class="consoletext">true</p>
+  </div>
+</div>
 
 ### `Option.get` 
 *returns the value stored in the option.*
