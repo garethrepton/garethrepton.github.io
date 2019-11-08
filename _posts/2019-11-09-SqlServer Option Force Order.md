@@ -29,7 +29,7 @@ Where I.InvoiceReference = @InvoiceReference
 
 {% endhighlight %}
 
-In my case, for some reason the query plan was filtering based on address, then linking to order, and then finally linking to person. Assuming the reference filter on the invoice table is more costly than filtering based on people first, this is the wrong way round (your mileage may vary here). Your query will be iterating/scanning/seeking far more rows than it needs to and performing a potentially expensive operation on them. So... what happens if we add our option to the end:
+In my case, for some reason the query plan was starting at the invoice table, then linking to order, and then finally linking to person. Assuming the reference filter on the invoice table is more costly than filtering based on people first, this is the wrong way round (your mileage may vary here). Your query will be iterating/scanning/seeking far more rows than it needs to and performing a potentially expensive operation on them. So... what happens if we add our option to the end:
 
 {% highlight SQL %}
 
