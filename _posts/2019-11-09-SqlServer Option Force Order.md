@@ -41,7 +41,7 @@ OPTION	(FORCE ORDER)
 
 {% endhighlight %}
 
-In this case, the query plan inverts from its previous incarnation, and starts with the smaller person table, filtering down the order and invoice resultsets BEFORE running the potentially expensive filter on the invoice reference field. Again, assuming the invoice reference filter is expensive, this can massively improve the performance of our query. 
+In this case, the query plan inverts from its previous incarnation, and starts with the smaller person table, filtering down the order and invoice result sets BEFORE running the potentially expensive filter on the invoice reference field. Again, assuming the invoice reference filter is expensive, this can massively improve the performance of our query. 
 
 ## Finally
 Hopefully this helps summarise what OPTION FORCE ORDER does, and how it can be of use. Tuning sql queries is a bit of an art form, so if you do ever decide to add a hint to a query, make sure you understand its effects on your query first.
