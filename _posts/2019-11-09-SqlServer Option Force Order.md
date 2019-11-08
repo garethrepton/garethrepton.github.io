@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Option FORCE ORDER in SqlServer
+title: Tuning with Option FORCE ORDER in SqlServer
 tags: C# Sql TSql Query Tuning SqlServer visualstudio dotnet projects database query optimisation
 ---
 
