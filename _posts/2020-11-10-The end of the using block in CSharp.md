@@ -7,7 +7,7 @@ tags: C# Sql TSql Query Tuning SqlServer visualstudio dotnet projects database q
 ## Intro
 C# 8 unfortunately seems to be branching away from the standard .Net Framework and its not (fully?) compatible with the full .Net Framework, instead you have to use DotNetCore to get the benefits of it. 
 
-That being said One of my favourite new features is the automatic using block scoping. Anything that removes some of the verbosity of the nested curly braces is good as far as I'm concerned.  
+That being said one of my favourite new features is the automatic using block scoping. Anything that removes some of the verbosity of the nested curly braces is good as far as I'm concerned.  
 
 ## Whats changed?
 Its actually fairly simple, lets take a disposable class called "Test" as an example:
@@ -37,7 +37,7 @@ Now, to recap, the traditional way to use this class in C# is to declare your us
 
 {% highlight CSharp %}
 
-    static void Main(string[] args)
+   static void Main(string[] args)
     {
         using (var t2 = new Test("t2"))
             DoSomethingWithTest(t2);
@@ -51,23 +51,21 @@ Now, to recap, the traditional way to use this class in C# is to declare your us
 
     static void DoSomethingWithTest(Test test)
     {
-        //Example only
+        Console.WriteLine($"Done something with {test.Name}");
     }
 
 {% endhighlight %}
 
-This is fine, but... it does nest your code 1 level deeper, again this is fine in most cases, but combine this with a couple of if statements and the code becomes pretty messy.
+This is fine, but... it does nest your code 1 level deeper which is ok in most cases, but combine this with a couple of if statements and the code becomes pretty messy.
 
 When the end of the declared using block is reached the object is automatically disposed, so we get a printout to the console like this:
 
 <div class="consolenosize">
   <div class="consolebody">
-    <p class="consoletext">Done something with t2
-                            ending t2
-                            Done something with t3
-                            Done something with t3
-                            ending t3
-    </p>
+    <p class="consoletext">Done something with t2    </p>
+    <p class="consoletext">ending t2   </p>
+    <p class="consoletext"> Done something with t3    </p>
+    <p class="consoletext">ending t3  </p>
   </div>
 </div>
 
@@ -115,17 +113,15 @@ This prints:
 
 <div class="consolenosize">
   <div class="consolebody">
-    <p class="consoletext">
-        Done something with t2
-        ending t2
-        Done something with t
-        Done something with t3
-        Done something with t3
-        ending t3
-        Done something with t1
-        ending t1
-        ending t
-    </p>
+    <p class="consoletext">Done something with t2   </p>
+    <p class="consoletext">ending t2    </p>
+    <p class="consoletext">Done something with t    </p>
+    <p class="consoletext">Done something with t3    </p>
+    <p class="consoletext">Done something with t3    </p>
+    <p class="consoletext">ending t3    </p>
+    <p class="consoletext">Done something with t1    </p>
+    <p class="consoletext">ending t1    </p>
+    <p class="consoletext">ending t    </p>
   </div>
 </div>
 
