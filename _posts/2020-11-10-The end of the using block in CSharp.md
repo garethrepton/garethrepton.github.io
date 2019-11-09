@@ -1,6 +1,6 @@
 ---
 layout: post
-title: The end of the using block in C#?
+title: The end of the using 'block' in C# 8?
 tags: C# Sql TSql Query Tuning SqlServer visualstudio dotnet projects database query optimisation
 ---
 
