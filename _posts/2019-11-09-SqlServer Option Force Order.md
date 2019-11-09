@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Tuning with Option FORCE ORDER in SqlServer
+title: Use the Option FORCE ORDER Luke (Sparingly) to tune queries in SqlServer
 tags: C# Sql TSql Query Tuning SqlServer visualstudio dotnet projects database query optimisation
 ---
 
