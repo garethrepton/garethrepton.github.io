@@ -125,8 +125,7 @@ This prints:
   </div>
 </div>
 
-So as you can see, our t2 and t3 instances end much sooner than the t1, and t instances. But otherwise, we can use the variables in much the same way as with traditional usings, we just don't have to worry about where they get disposed. 
+First of all, I personally feel like the syntax and usage of `t` and `t1` are much cleaner and more natural, theres no nestings to worry about, and you can clearly see they're being "scoped" because of the using block. In terms of the behaviour here, our t2 and t3 instances end much sooner than the t1, and t instances, and the t1 and t instances are automatically disposed without us having to declare when this happens. Other than that, we can use the variables in much the same way as with traditional usings, we just don't have to worry about where they get disposed. 
 
 ## Finally
-Personally I think this leads to much cleaner code, hopefully you do too.
-
+Personally I much prefer the new using syntax, it feels cleaner without the additional nesting and feels like the language is moving in the right way (away from verbosity), hopefully you do too.
