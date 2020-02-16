@@ -56,11 +56,5 @@
     </div>
 
     {% include cookie-consent.html %}
-    {% 
-      if(readCookie('cookie-notice-dismissed')=='true') {
-        include analytics.html 
-      }
-      
-      %}
   </body>
 </html>
