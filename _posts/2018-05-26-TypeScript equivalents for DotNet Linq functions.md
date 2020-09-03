@@ -72,9 +72,10 @@ people.OrderBy(x => x.Name);
 {% endhighlight %}
 
 ### Typescript
+Note: you have to (shallow) copy the array as the 'sort' method mutates the array.  
 In TypeScript, the equivalent to order by is the sort function, but you do have to give it a sort function that returns 1 or 0:
 {% highlight TypeScript %}
-people.sort((x,y) => x.Name > y.Name ? 1 : -1);
+[...people].sort((x,y) => x.Name > y.Name ? 1 : -1);
 {% endhighlight %}
 
 ----------------
