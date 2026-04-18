@@ -18,9 +18,86 @@ html {
 }
 
 body {
-	background: $white;
-  font: 18px/1.4 $helvetica;
-  color: $darkGray;
+  color: $textPrimary;
+  font: 18px/1.5 $helvetica;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  background:
+    radial-gradient(ellipse 55% 35% at 50% 62%, rgba(255, 41, 117, 0.55) 0%, rgba(255, 41, 117, 0.15) 40%, transparent 70%),
+    linear-gradient(180deg,
+      #0d0221 0%,
+      #1a0b2e 25%,
+      #3d1a5e 45%,
+      #ff2975 58%,
+      #ffb86c 62%,
+      #1a0b2e 66%,
+      #0d0221 100%
+    );
+  background-attachment: fixed;
+}
+
+.synthwave-sky-lines {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: repeating-linear-gradient(
+    180deg,
+    transparent 0,
+    transparent 52px,
+    rgba(0, 245, 255, 0.28) 52px,
+    rgba(0, 245, 255, 0.28) 53px
+  );
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 20%, #000 55%, transparent 75%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 20%, #000 55%, transparent 75%);
+  filter: drop-shadow(0 0 4px rgba(0, 245, 255, 0.4));
+}
+
+.wrapper-masthead, #main, .wrapper-footer {
+  position: relative;
+  z-index: 1;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  left: 50%;
+  top: 66%;
+  width: 300vw;
+  height: 80vh;
+  transform: translateX(-50%) perspective(500px) rotateX(65deg);
+  transform-origin: 50% 0;
+  background-image:
+    linear-gradient(to bottom, rgba(255, 41, 117, 0.8) 0, rgba(255, 41, 117, 0.8) 2px, transparent 2px),
+    linear-gradient(to right, rgba(0, 245, 255, 0.7) 0, rgba(0, 245, 255, 0.7) 2px, transparent 2px);
+  background-size: 100% 50px, 50px 100%;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.7;
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 20%, #000 80%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 20%, #000 80%, transparent 100%);
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  left: 50%;
+  top: 62%;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle at center,
+    #ffb86c 0%,
+    #ff6b9d 35%,
+    #ff2975 60%,
+    rgba(255, 41, 117, 0) 75%);
+  box-shadow:
+    0 0 60px rgba(255, 107, 157, 0.6),
+    0 0 120px rgba(255, 41, 117, 0.4);
+  pointer-events: none;
+  z-index: -1;
 }
 
 .container {
@@ -30,14 +107,30 @@ body {
   width: 100%;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: $helveticaNeue;
-  color: $darkerGray;
-  font-weight: bold;
+#main.container {
+  background: rgba($bgDeep, 0.75);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  padding: 30px 30px;
+  border-radius: 4px;
+  box-shadow:
+    0 0 40px rgba($neonPurple, 0.3),
+    inset 0 0 60px rgba($bgDeep, 0.5);
 
-  line-height: 1.7;
+  @include mobile {
+    padding: 20px 15px;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $retro;
+  color: $neonCyan;
+  font-weight: normal;
+  letter-spacing: 1px;
+  line-height: 1.5;
   margin: 1em 0 15px;
   padding: 0;
+  @include neonGlow($neonCyan);
 
   @include mobile {
     line-height: 1.4;
@@ -45,7 +138,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 30px;
+  font-size: 32px;
+  color: $neonPink;
+  @include neonGlow($neonPink);
   a {
     color: inherit;
   }
@@ -61,7 +156,8 @@ h3 {
 
 h4 {
   font-size: 18px;
-  color: $gray;
+  color: $neonPurple;
+  @include neonGlow($neonPurple);
 }
 
 p {
@@ -69,11 +165,13 @@ p {
 }
 
 a {
-  color: $blue;
+  color: $neonCyan;
   text-decoration: none;
-	cursor: pointer;
+  cursor: pointer;
+  transition: text-shadow 0.15s ease, color 0.15s ease;
   &:hover, &:active {
-    color: $blue;
+    color: $neonPink;
+    @include neonGlow($neonPink);
   }
 }
 
@@ -116,8 +214,10 @@ img {
 }
 
 .date {
-  font-style: italic;
-  color: $gray;
+  font-family: $retroMono;
+  font-style: normal;
+  color: $neonYellow;
+  letter-spacing: 1px;
 }
 
 // Specify the color of the selection
@@ -156,7 +256,8 @@ img {
 
 .masthead {
   padding: 20px 0;
-  border-bottom: 1px solid $lightGray;
+  border-bottom: 2px solid $neonPink;
+  box-shadow: 0 2px 20px rgba($neonPink, 0.4);
 
   @include mobile {
     text-align: center;
@@ -192,18 +293,21 @@ img {
 
 .site-name {
   margin: 0;
-  color: $darkGray;
+  color: $neonPink;
   cursor: pointer;
-  font-family: $helveticaNeue;
-  font-weight: 300;
-  font-size: 28px;
-  letter-spacing: 1px;
+  font-family: $retro;
+  font-weight: normal;
+  font-size: 30px;
+  letter-spacing: 2px;
+  @include neonGlow($neonPink);
 }
 
 .site-description {
-  margin: -5px 0 0 0;
-  color: $gray;
-  font-size: 16px;
+  margin: 0;
+  color: $neonCyan;
+  font-family: $retroMono;
+  font-size: 18px;
+  letter-spacing: 1px;
 
   @include mobile {
     margin: 3px 0;
@@ -225,14 +329,15 @@ nav {
 
   a {
     margin-left: 20px;
-    color: $darkGray;
+    color: $neonCyan;
     text-align: right;
-    font-weight: 300;
-    letter-spacing: 1px;
+    font-weight: normal;
+    font-family: $retro;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 
     @include mobile {
       margin: 0 10px;
-      color: $blue;
     }
   }
 }
@@ -243,7 +348,7 @@ nav {
 
 .posts > .post {
   padding-bottom: 2em;
-  border-bottom: 1px solid $lightGray;
+  border-bottom: 1px solid $neonPurple;
 }
 
 .posts > .post:last-child {
@@ -254,9 +359,10 @@ nav {
 .post {
   blockquote {
     margin: 1.8em .8em;
-    border-left: 2px solid $gray;
-    padding: 0.1em 1em;
-    color: $gray;
+    border-left: 3px solid $neonPink;
+    padding: 0.4em 1em;
+    color: $textMuted;
+    background: rgba($neonPink, 0.05);
     font-size: 22px;
     font-style: italic;
   }
@@ -268,14 +374,16 @@ nav {
   .read-more {
     text-transform: uppercase;
     font-size: 15px;
+    font-family: $retro;
+    letter-spacing: 2px;
   }
 }
 
 .wrapper-footer {
   margin-top: 50px;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-  background-color: $lightGray;
+  border-top: 2px solid $neonCyan;
+  box-shadow: 0 -2px 20px rgba($neonCyan, 0.3);
+  background-color: rgba($bgSurface, 0.8);
 }
 
 footer {
@@ -285,15 +393,17 @@ footer {
 
 .post-index {
   .post-index-year {
-    margin-bottom: 2em;
+    margin-bottom: 2.5em;
 
     h2 {
-      border-bottom: 1px solid $lightGray;
-      padding-bottom: 6px;
-      margin-bottom: 10px;
-      font-size: 22px;
-      color: $gray;
-      font-weight: 300;
+      border-bottom: 2px solid $neonPurple;
+      padding-bottom: 8px;
+      margin-bottom: 14px;
+      font-size: 28px;
+      color: $neonPurple;
+      font-family: $retro;
+      letter-spacing: 3px;
+      @include neonGlow($neonPurple);
     }
 
     ul {
@@ -303,11 +413,16 @@ footer {
     }
 
     li {
-      padding: 10px 0;
-      border-bottom: 1px solid lighten($lightGray, 5%);
+      padding: 12px 14px;
+      margin-bottom: 6px;
+      background: rgba($bgSurface, 0.6);
+      border-left: 3px solid transparent;
+      transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
 
-      &:last-child {
-        border-bottom: none;
+      &:hover {
+        border-left-color: $neonPink;
+        background: rgba($bgLifted, 0.8);
+        transform: translateX(4px);
       }
     }
 
@@ -321,6 +436,7 @@ footer {
     .post-index-title {
       flex: 1;
       font-weight: 500;
+      font-size: 17px;
     }
 
     .date {
@@ -329,10 +445,10 @@ footer {
     }
 
     .post-index-blurb {
-      margin-top: 4px;
+      margin-top: 6px;
       font-size: 15px;
-      color: $gray;
-      line-height: 1.4;
+      color: $textMuted;
+      line-height: 1.45;
     }
   }
 }

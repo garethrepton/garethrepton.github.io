@@ -3,25 +3,48 @@
 // VARIABLES
 //
 
-// Colors
-$blue: #4183C4;
+// Synthwave palette
+$neonPink:    #ff2975;
+$neonCyan:    #00f5ff;
+$neonPurple:  #b14aed;
+$neonYellow:  #f9f871;
 
-// Grays
-$black: #000;
-$darkerGray: #222;
-$darkGray: #333;
-$gray: #666;
-$lightGray: #eee;
-$white: #fff;
+// Backgrounds
+$bgDeep:      #0d0221;
+$bgSurface:   #1a0b2e;
+$bgLifted:    #241447;
+
+// Text
+$textPrimary: #f8f8f2;
+$textMuted:   #b8a8d4;
+$textDim:     #8a7ca8;
+
+// Legacy mappings (existing SCSS references these names)
+$blue:        $neonCyan;
+$black:       $bgDeep;
+$darkerGray:  $textPrimary;
+$darkGray:    $textPrimary;
+$gray:        $textMuted;
+$lightGray:   $bgLifted;
+$white:       $bgDeep;
 
 // Font stacks
-$helvetica: Helvetica, Arial, sans-serif;
-$helveticaNeue: "Helvetica Neue", Helvetica, Arial, sans-serif;
-$georgia: Georgia, serif;
+$retro:        "Audiowide", "Orbitron", "Courier New", monospace;
+$retroMono:    "VT323", "Share Tech Mono", "Courier New", monospace;
+$helvetica:    "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$helveticaNeue: $helvetica;
+$georgia:      Georgia, serif;
 
 // Mobile breakpoints
 @mixin mobile {
   @media screen and (max-width: 640px) {
     @content;
   }
+}
+
+@mixin neonGlow($color) {
+  text-shadow:
+    0 0 4px $color,
+    0 0 10px rgba($color, 0.6),
+    0 0 20px rgba($color, 0.3);
 }
