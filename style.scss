@@ -283,6 +283,60 @@ footer {
   text-align: center;
 }
 
+.post-index {
+  .post-index-year {
+    margin-bottom: 2em;
+
+    h2 {
+      border-bottom: 1px solid $lightGray;
+      padding-bottom: 6px;
+      margin-bottom: 10px;
+      font-size: 22px;
+      color: $gray;
+      font-weight: 300;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      padding: 10px 0;
+      border-bottom: 1px solid lighten($lightGray, 5%);
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+
+    .post-index-item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1em;
+    }
+
+    .post-index-title {
+      flex: 1;
+      font-weight: 500;
+    }
+
+    .date {
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .post-index-blurb {
+      margin-top: 4px;
+      font-size: 15px;
+      color: $gray;
+      line-height: 1.4;
+    }
+  }
+}
+
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
 // ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
 @import "highlights";

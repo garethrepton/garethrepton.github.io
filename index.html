@@ -2,17 +2,24 @@
 layout: default
 ---
 
-<div class="posts">
-  {% for post in site.posts %}
-    <article class="post">
-
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
-
-      <div class="entry">
-        {{ post.excerpt }}
-      </div>
-
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-    </article>
+<div class="post-index">
+  {% assign posts_by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+  {% for year in posts_by_year %}
+    <section class="post-index-year">
+      <h2>{{ year.name }}</h2>
+      <ul>
+        {% for post in year.items %}
+          <li>
+            <div class="post-index-item-header">
+              <a href="{{ site.baseurl }}{{ post.url }}" class="post-index-title">{{ post.title }}</a>
+              <span class="date">{{ post.date | date: "%b %-d" }}</span>
+            </div>
+            <div class="post-index-blurb">
+              {{ post.excerpt | strip_html | truncatewords: 40 }}
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
   {% endfor %}
 </div>
