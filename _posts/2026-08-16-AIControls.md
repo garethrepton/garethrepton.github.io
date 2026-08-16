@@ -13,7 +13,19 @@ All the hype around AI is around how quickly it can make things, and it is very 
 
 We can all now make something with AI, look at the result, say that's about right, then just use that for every similar problem we ever have going forwards. But the likelihood is, it actually isn't correct and it's laced with subtle bugs, or worse it could be doing something we don't think it is. Particularly if there is a non trivial amount of logic involved, or a significant amount of bespoke context.
 
-It's a slightly ridiculous example, but can you imagine a calculator app where only a few cases have been tested and asked for so the LLM wrote it as a switch statement? If the consumer is non-technical, they wouldn't know, they'd just find out the first time they tried to use it for something other than their original test case. Now imagine that sort of thing baked into an application somewhere churning out slightly incorrect numbers over and over because it was never checked.   
+It's a slightly ridiculous example, but can you imagine a calculator app where only a few cases have been tested and asked for so the LLM wrote it as a switch statement?
+
+{% highlight CSharp %}
+
+    (a, b) switch
+    {
+        (4, 4) => 8,
+        _ => 0
+    }
+
+{% endhighlight %}
+
+If the consumer is non-technical and not reading the code, they may not know, they'd just find out the first time they tried to use it for something other than their original test case. Now imagine that sort of thing baked into an application somewhere churning out slightly incorrect numbers over and over because it was never checked.   
 
 Even getting multiple independent model agents to verify the work of another model seems fraught with issues as there seems to be a significant overlap between frontier models even from different providers as they share a level of training data, and are all ultimately very similar in how they actually work. This means they agree on the same mistakes!
 
