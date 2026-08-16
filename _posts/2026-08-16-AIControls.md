@@ -2,7 +2,7 @@
 layout: post
 title: Controlling AI-generated solutions is hard
 tags: [AI, RandomNotes] 
-published: false
+published: true
 ---
 
 *I'm starting to write some of my thoughts down as I start to join the dots a bit with AI partly as a means to hold myself accountable and increase my own knowledge, they will likely change frequently because it's very new and the industry as a whole is still creating new approaches seemingly on a weekly basis.*
@@ -31,7 +31,7 @@ Even getting multiple independent model agents to verify the work of another mod
 
 Right now it doesn't seem possible to actually validate AI generated solutions without an experienced engineer reviewing what it's created, providing shedloads of context, guiding automated tests (which AI greatly helps with), and some levels of manual testing, and even then it can be difficult to gain full confidence. Maybe I am missing something here, if I am I would love to know!
 
-What AI actually creates is this slightly odd blend of non deterministic meta programming, where the goal is no longer to write the actual code, but to create enough context, tests, reviews and guardrails to keep it on track for what you actually want to achieve. I find this way of working quite fun, and has a low barrier to entry, but it feels like the skill ceiling could be quite high as the actual best engineers using it will be able to back what they have produced with its obvious productivity gains, not just produce untested working prototypes really quickly.
+What AI actually creates is this slightly odd blend of non deterministic meta programming, where the goal is no longer to write the actual code, but to create enough context, tests, reviews and guardrails to keep it on track for what you actually want to achieve. I find this way of working quite fun, and has a low barrier to entry, but it feels like the skill ceiling could be quite high as the actual best engineers using it will be able to back what they have produced, whilst still taking advantage of its obvious productivity gains.
 
 #### As a side note
 
